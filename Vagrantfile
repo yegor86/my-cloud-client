@@ -17,6 +17,8 @@ Vagrant.configure(2) do |config|
      npm install
      npm install -g nodemon
 
+     bower install
+
      sudo apt-get install -y ruby
      sudo gem install foreman
      sudo foreman export upstart /etc/init -a nodejs -u vagrant -p 3000
