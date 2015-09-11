@@ -1,5 +1,11 @@
+'use strict';
+
 var gulp = require('gulp');
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 gulp.task('default', function() {
-    console.log('Default tast ran');
+    console.log('Default task ran');
 });
+
+gulp.task('build', require('/tasks/build'));

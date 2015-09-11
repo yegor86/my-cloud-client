@@ -1,1 +1,1 @@
-web: bash -c 'source /home/vagrant/.nvm/nvm.sh && exec nodemon bin/www'
+web: bash -c 'source /home/vagrant/.nvm/nvm.sh && exec nodemon server/bin/www'
