@@ -1,8 +1,6 @@
 'use strict';
 
-var app = angular.module('myCloudDriveApp', []);
-
 angular.module('myCloudDriveApp')
-    .controller('IndexCtrl', function ($scope, $http) {
+    .controller('IndexCtrl', function ($scope) {
         $scope.greeting = 'Hello!';
     });

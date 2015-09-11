@@ -4,10 +4,16 @@ angular.module('myCloudDriveApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ui.router',
+    'ngRoute',
     'ui.bootstrap'
-]).config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-    $urlRouterProvider.otherwise('/');
-
-    $locationProvider.html5Mode(true);
+]).config(function ($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl: 'views/index.html',
+            controller: 'IndexCtrl'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+(true);
 });
