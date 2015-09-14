@@ -4,9 +4,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var about = require('./routes/about');
-
 var app = express();
 
 app.use(logger('dev'));
@@ -46,7 +43,8 @@ if (app.get('env') === 'production') {
     });
 }
 
-app.use('/', index);
-app.use('/about', about);
+var router = require('./routes/routes');
+
+app.use('/', router);
 
 module.exports = app;

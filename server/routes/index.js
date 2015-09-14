@@ -1,12 +1,7 @@
-var express = require('express');
-var router = express.Router();
 
-router.get('/', function(req, res) {
-    console.log('index');
-
-    res.json({
-        'msg': 'success!'
+module.exports = function(router) {
+    router.get('/', function(req, res) {
+        res.send('im the home page!');
     });
-});
-
-module.exports = router;
+    return router;
+};

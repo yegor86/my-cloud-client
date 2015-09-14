@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
+var path = require('path');
 
-router.get('/users', function(req, res) {
-    console.log('users');
-});
-
-module.exports = router;
+module.exports = function(router) {
+    router.get('/about', function(req, res) {
+        res.sendFile(path.join(__dirname + '../../../client/index.html'));
+    });
+    return router;
+};
