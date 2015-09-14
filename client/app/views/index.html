@@ -1,4 +1,9 @@
 <div ng-controller="IndexCtrl">
     <h2>{{ greeting }}</h2>
+    <input ng-model="customSpice" />
+    <button ng-click="spicy('chili')">Chili</button>
+    <button ng-click="spicy(customSpice)">Custom spice</button>
+    <p>The food is {{spice}} spicy!</p>
+
     <a href="/about">about</a>
 </div>
