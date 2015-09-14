@@ -2,8 +2,8 @@
   "name": "myCloudDrive",
   "version": "0.1.0",
   "scripts": {
-    "start": "set NODE_ENV = production & nodemon ./server/bin/www",
-    "test": "set NODE_ENV = development & nodemon ./server/bin/www"
+    "start": "set NODE_ENV = development & nodemon ./server/bin/www",
+    "test": ""
   },
   "dependencies": {
     "body-parser": "^1.13.3",
