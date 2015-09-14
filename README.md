@@ -23,3 +23,7 @@
     ```bash
         $ npm test
     ```
+
+6. Check it works on port 3000. Follow the address (Make sure that port 3000 is not bound)
+
+    [localhost:3000](http://localhost:3000)
