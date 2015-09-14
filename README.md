@@ -21,7 +21,7 @@
 5. Run a development version of the application
 
     ```bash
-        $ npm test
+        $ npm start
     ```
 
 6. Check it works on port 3000. Follow the address (Make sure that port 3000 is not bound)
