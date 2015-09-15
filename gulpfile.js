@@ -8,4 +8,4 @@ gulp.task('default', function() {
     console.log('Default task ran');
 });
 
-gulp.task('build', require('/tasks/build'));
+gulp.task('inject', require('./tasks/inject'));
