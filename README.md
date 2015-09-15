@@ -20,17 +20,24 @@
     ```bash
         $ bower install
     ```
-5. Install nodemon tool that will keep the node server from having to be restarted each time the code is changed:
+
+5. Run gulp default tasks
+
+   ```bash
+        $ gulp
+   ```
+
+6. Install nodemon tool that will keep the node server from having to be restarted each time the code is changed:
 
     ```bash
         $ npm install -g nodemon
     ```
-6. Run a development version of the application
+7. Run a development version of the application
 
     ```bash
         $ npm start
     ```
 
-7. Check it works on port 3000. Follow the address (Make sure that port 3000 is not bound)
+8. Check it works on port 3000. Follow the address (Make sure that port 3000 is not bound)
 
     [localhost:3000](http://localhost:3000)
