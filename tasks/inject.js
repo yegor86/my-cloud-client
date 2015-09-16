@@ -8,7 +8,6 @@ module.exports = function() {
     var sources = gulp.src([
         './client/styles/css/*.css',
         './client/**/*.min.js',
-        './client/bower_components/angular-resource/angular-resource.js',
         './client/app/app.js',
         './client/app/controllers/*.js'], {read: false});
 
