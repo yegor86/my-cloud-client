@@ -21,6 +21,9 @@
     "karma": "~0.12.0",
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "~0.2.0",
-    "karma-cli": "~0.1.0"
+    "karma-cli": "~0.1.0",
+    "protractor": "^1.8.0",
+    "gulp-protractor": "^0.0.12",
+    "chromedriver": "^2.19.0"
   }
 }
