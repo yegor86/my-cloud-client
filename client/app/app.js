@@ -1,11 +1,9 @@
 'use strict';
 
 angular.module('myCloudDriveApp', [
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
     'ngRoute',
-    'ui.bootstrap'
+    'ngCookies',
+    'ngResource'
 ]).config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
