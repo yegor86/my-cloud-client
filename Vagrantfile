@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "webclient" do |container| 
     container.vm.box = "ubuntu/trusty64"
     container.vm.box_url = "https://atlas.hashicorp.com/ubuntu/boxes/trusty64"
-    container.vm.host_name = "webclient"
+    container.vm.host_name = "webclientapp"
     
     container.vm.synced_folder ".", "/mnt/bootstrap/webclient", :create => true
     container.vm.provision "docker" do |d|

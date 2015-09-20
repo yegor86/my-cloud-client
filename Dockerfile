@@ -1,4 +1,4 @@
-FROM node:4.0.0
+FROM node:4
 RUN mkdir -p /usr/src/app
 RUN npm install nodemon -g
 WORKDIR /usr/src/app
