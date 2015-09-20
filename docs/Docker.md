@@ -16,7 +16,7 @@
     <code>$ docker rm [container-id]</code>
 3. Build the container
 
-    <code>$ docker build -t my-cloud-drive /mnt/bootstrap/web"</code>
+    <code>$ docker build -t my-cloud-client /mnt/bootstrap/webclient"</code>
 4. Run docker container again from shell
     
-    <code>$ docker run -d -p 3030 --net="host" my-cloud-drive</code>
+    <code>$ docker run -d -p 3000 --net="host" my-cloud-client</code>
