@@ -1,6 +1,4 @@
-## Running application locally
-
-1. [Prerequisites](docs/Prerequisites.md)
+1. [Prerequisites for running the app locally](docs/Prerequisites.md)
 
 2. Run VM with notejs
 

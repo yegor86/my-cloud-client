@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
         d.build_image "/mnt/bootstrap/webclient",
             args: "-t my-cloud-client"
         d.run "my-cloud-client", 
-            args: "-d -p 3000:3000 --net=host my-cloud-client"
+            args: "-d -p 3000:3000"
     end
     
     container.vm.network "forwarded_port", guest: 3000, host: 3000
