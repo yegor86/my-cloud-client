@@ -1,43 +1,20 @@
 ## Running application locally
 
-1. Make sure you have [node.js](https://nodejs.org/en/download/) installed
-
-2. Install all dependences of a server side
+1. Run VM with notejs
 
     ```bash
-        $ cd my-cloud-client/
-        $ npm install
+        $ vagrant up webclient
     ```
 
-3. Install a bower
-
-    ```bash
-        $ npm install -g bower
-    ```
-
-4. Install all dependences of a client side
-
-    ```bash
-        $ bower install
-    ```
-
-5. Run gulp default tasks
-
-   ```bash
-        $ gulp
-   ```
-
-6. Install nodemon tool that will keep the node server from having to be restarted each time the code is changed:
-
-    ```bash
-        $ npm install -g nodemon
-    ```
-7. Run a development version of the application
-
-    ```bash
-        $ npm start
-    ```
-
-8. Check it works on port 3000. Follow the address (Make sure that port 3000 is not bound)
+2. Check it works on port 3000. Follow the address:
 
     [localhost:3000](http://localhost:3000)
+    
+3. Check that linux is up and running
+
+    ```bash
+        $ vagrant ssh webclient
+    ```
+4. See the document to work with Docker:
+    
+    [Docker Guide](docs/Docker.md)

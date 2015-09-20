@@ -1,27 +1,29 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/trusty64"
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
+$script = <<SCRIPT
+echo I am provisioning...
+date > /etc/vagrant_provisioned_at
+SCRIPT
 
-  config.vm.provision "shell", privileged: false, inline: <<-SHELL
-     sudo apt-get update
-     sudo apt-get install -y build-essential curl
-     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
-     source ~/.nvm/nvm.sh
-     nvm install node
-     nvm alias default node
+Vagrant.configure("2") do |config|
+  config.vm.provision "shell", inline: $script
 
-     cd /vagrant
-     npm install
-     npm install -g nodemon
-
-     bower install
-
-     sudo apt-get install -y ruby
-     sudo gem install foreman
-     sudo foreman export upstart /etc/init -a nodejs -u vagrant -p 3000
-     sudo service nodejs start
-  SHELL
+  config.vm.define "webclient" do |container| 
+    container.vm.box = "ubuntu/trusty64"
+    container.vm.box_url = "https://atlas.hashicorp.com/ubuntu/boxes/trusty64"
+    container.vm.host_name = "webclient"
+    
+    container.vm.synced_folder ".", "/mnt/bootstrap/webclient", :create => true
+    container.vm.provision "docker" do |d|
+        d.build_image "/mnt/bootstrap/webclient",
+            args: "-t my-cloud-client"
+        d.run "my-cloud-client", 
+            args: "-d -p 3000:3000 --net=host my-cloud-client"
+    end
+    
+    container.vm.network "forwarded_port", guest: 3000, host: 3000
+    container.vm.network "private_network", ip: "192.168.205.100"
+  end
+  
 end
