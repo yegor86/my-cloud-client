@@ -19,4 +19,4 @@
     <code>$ docker build -t my-cloud-client /mnt/bootstrap/webclient"</code>
 4. Run docker container again from shell
     
-    <code>$ docker run -d -p 3000 --net="host" my-cloud-client</code>
+    <code>$ docker run -d -p 3000:3000 --net="host" my-cloud-client</code>
