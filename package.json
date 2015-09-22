@@ -2,6 +2,7 @@
   "name": "myCloudDriveApp",
   "version": "0.1.0",
   "scripts": {
+    "postinstall": "bower install --allow-root",
     "start": "nodemon ./server/bin/www",
     "test": "karma start karma.conf.js"
   },
@@ -11,7 +12,8 @@
     "express": "~4.9.0",
     "serve-favicon": "~2.3.0",
     "morgan": "~1.6.1",
-    "debug": "~2.2.0"
+    "debug": "~2.2.0",
+    "bower": "~1.5.2"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
