@@ -6,8 +6,9 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 RUN npm install
 COPY . /usr/src/app
+RUN npm install -g gulp
+RUN gulp default
 
-CMD [ "gulp", "default" ]
 CMD [ "npm", "start" ]
 
 EXPOSE 3000
