@@ -9,26 +9,21 @@
 3. Install bower
 
     ```bash
-        $ npm install -g bower
+         $ npm install -g bower
     ```
-4. Install all dependences of a client side
+4. Run gulp default tasks
 
     ```bash
-        $ bower install
+         $ gulp default
     ```
-5. Run gulp default tasks
+5. Install nodemon tool that will keep the node server from having to be restarted each time the code is changed:
 
     ```bash
-        $ gulp
+         $ npm install -g nodemon
     ```
-6. Install nodemon tool that will keep the node server from having to be restarted each time the code is changed:
+6. Run a development version of the application
 
     ```bash
-        $ npm install -g nodemon
-    ```
-7. Run a development version of the application
-
-    ```bash
-        $ npm start
+         $ npm start
     ```
     
