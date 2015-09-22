@@ -1,15 +1,15 @@
 ## Prerequisites
 1. Make sure you have [node.js](https://nodejs.org/en/download/) installed
-2. Install all dependences of a server side
+2. Install bower
+
+    ```bash
+         $ npm install -g bower
+    ```
+3. Install all dependences
     
     ```bash
          $ cd my-cloud-client/
          $ npm install
-    ```
-3. Install bower
-
-    ```bash
-         $ npm install -g bower
     ```
 4. Run gulp default tasks
 
