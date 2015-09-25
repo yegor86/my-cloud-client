@@ -16,7 +16,8 @@ gulp.task('default', function() {
 gulp.task('hint', function() {
     return gulp.src(['./server/app.js',
         './server/routes/*.js',
-        './server/bin/www'])
+        './server/bin/www',
+        './client/app/**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default', { verbose: true }));
 });
