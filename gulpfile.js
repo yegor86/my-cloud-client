@@ -2,7 +2,7 @@
 
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
-    karma = require('karma').server,
+    Server = require('karma').Server,
     protractor = require('gulp-protractor').protractor;
 
 
@@ -25,10 +25,10 @@ gulp.task('hint', function() {
 gulp.task('inject', require('./tasks/inject'));
 
 gulp.task('unit', function(done) {
-    karma.start({
+    new Server({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
-    }, done);
+    }, done).start();
 });
 
 gulp.task('e2e', function(done) {
