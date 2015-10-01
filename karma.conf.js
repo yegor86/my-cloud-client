@@ -21,7 +21,7 @@ module.exports = function(config) {
       'client/bower_components/angular-cookies/angular-cookies.js',
       'client/bower_components/angular-resource/angular-resource.js',
       'client/app/app.js',
-      'client/app/controllers/*.js',
+      'client/app/**/*.js',
       'client/app/*',
       'client/tests/unit/controllers/*Spec.js'
     ],
