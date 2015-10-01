@@ -9,7 +9,7 @@ module.exports = function() {
     var sources = gulp.src([
         './client/styles/css/*.css',
         './client/app/app.js',
-        './client/app/controllers/*.js'], {read: false});
+        './client/app/**/*.js'], {read: false});
 
     return target.pipe(inject(sources, {ignorePath: 'client/'}))
         .pipe(inject(gulp.src(bowerFiles(), {read: false}), {ignorePath: 'client/', name: 'bower'}))
