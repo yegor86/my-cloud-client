@@ -1,0 +1,22 @@
+[
+  {
+    "name": "some-image.jpg",
+    "type": "image",
+    "ext": "jpg"
+  },
+  {
+    "name": "some-image2.jpg",
+    "type": "image",
+    "ext": "jpg"
+  },
+  {
+    "name": "some-text.txt",
+    "type": "text",
+    "ext": "txt"
+  },
+  {
+    "name": "some-text2.txt",
+    "type": "text",
+    "ext": "txt"
+  }
+]
