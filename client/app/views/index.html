@@ -1,5 +1,17 @@
-<div ng-controller="IndexCtrl">
-  <a href="/about">about</a>
-
-  <ul><li ng-repeat="file in files">{{file.name}}</li></ul>
+<div id="sidebar"></div>
+<div id="browse">
+  <div id="context-menu-container"></div>
+  <div id="browse-box">
+    <div id="browse-header"></div>
+    <ol id="browse-items">
+      <li class="browse-item" ng-repeat="item in items">
+        <div class="name">
+          <img class="icon" src="" />
+          <a class="name-link" target="_blank" href="">{{item.name}}</a>
+        </div>
+        <div class="modified">{{item.modified}}</div>
+        <div class="shared">{{item.sharedWith}}</div>
+      </li>
+    </ol>
+  </div>
 </div>
