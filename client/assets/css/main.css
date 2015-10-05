@@ -2,3 +2,24 @@
     width: 990px;
     margin: 0 auto;
 }
+
+#sidebar {
+    position: fixed;
+    width: 180px;
+}
+
+#browse-items .name {
+    float: left;
+    height: 32px;
+    width: 47%;
+}
+
+#browse-items .modified {
+    float: left;
+    width: 25%;
+}
+
+#browse-items .shared {
+    float: left;
+    width: 28%;
+}
