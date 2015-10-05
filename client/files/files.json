@@ -1,22 +1,42 @@
 [
   {
-    "name": "some-image.jpg",
+    "name": "image1.jpg",
     "type": "image",
-    "ext": "jpg"
+    "size": "",
+    "modified": "",
+    "sortRank": 0,
+    "sharedWith": []
   },
   {
-    "name": "some-image2.jpg",
+    "name": "image2.jpg",
     "type": "image",
-    "ext": "jpg"
+    "size": "",
+    "modified": "",
+    "sortRank": 1,
+    "sharedWith": []
   },
   {
-    "name": "some-text.txt",
+    "name": "text1.txt",
     "type": "text",
-    "ext": "txt"
+    "size": "",
+    "modified": "",
+    "sortRank": 2,
+    "sharedWith": []
   },
   {
-    "name": "some-text2.txt",
+    "name": "text2.txt",
     "type": "text",
-    "ext": "txt"
+    "size": "",
+    "modified": "",
+    "sortRank": 3,
+    "sharedWith": []
+  },
+  {
+    "name": "dir1",
+    "type": "dir",
+    "size": "",
+    "modified": "",
+    "sortRank": 4,
+    "sharedWith": []
   }
 ]
