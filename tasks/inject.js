@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 module.exports = function() {
     var target = gulp.src('./client/index.html');
     var sources = gulp.src([
-        './client/styles/css/*.css',
+        './client/assets/css/*.css',
         './client/app/app.js',
         './client/app/**/*.js'], {read: false});
 
