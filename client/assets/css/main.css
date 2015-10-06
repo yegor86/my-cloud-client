@@ -1,3 +1,10 @@
+body {
+    background-color: #fff;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 a {
     outline: medium none;
     cursor: pointer;
@@ -27,10 +34,56 @@ body, input, textarea, select, button, .normal {
 #sidebar {
     position: fixed;
     width: 180px;
+    top: 50px;
+    z-index: 6;
+}
+
+#main-nav {
+    margin-top: 27px;
+}
+
+#main-nav li {
+    list-style: none;
+}
+
+#browse-sort {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#browse-sort, #browse-action-bar {
+    line-height: 29px;
+    padding: 3px 2px;
+    height: 30px;
+}
+
+#browse-sort #name-sorter {
+    width: 47%;
+}
+
+#browse-sort #modified-sorter {
+    width: 25%;
+}
+
+#browse-sort #shared-sorter {
+    width: 28%;
+}
+
+#browse-sort .sortable-column-header {
+    float: left;
+    text-align: left;
+    font-size: 12px;
+    color: #AAA;
+}
+
+#browse-sort .sortable-column-header:hover {
+    text-decoration: none;
+}
+
+#browse {
+    padding-left: 190px;
 }
 
 #browse-box {
-    padding-left: 190px;
     min-height: 425px;
 }
 
@@ -40,6 +93,11 @@ body, input, textarea, select, button, .normal {
     z-index: 4;
     width: 800px;
     min-height: 98px;
+    background: #FFF;
+}
+
+#browse-action-bar {
+    margin-bottom: 26px;
 }
 
 #browse-items {

@@ -1,8 +1,28 @@
-<div id="sidebar"></div>
+<div id="sidebar">
+  <ul id="main-nav">
+    <li><a href="/about">About</a></li>
+  </ul>
+</div>
 <div id="browse">
   <div id="context-menu-container"></div>
   <div id="browse-box">
-    <div id="browse-header"></div>
+    <div id="browse-header">
+      <div id="browse-action-bar"></div>
+      <div id="browse-sort">
+        <a id="name-sorter" class="sortable-column-header">
+          <span>Name</span>
+          <img src="" />
+        </a>
+        <a id="modified-sorter" class="sortable-column-header">
+          <span>Modified</span>
+          <img src="" />
+        </a>
+        <a id="shared-sorter" class="sortable-column-header">
+          <span>Shared with</span>
+          <img src="" />
+        </a>
+      </div>
+    </div>
     <ol id="browse-items">
       <li class="browse-item" ng-repeat="item in items">
         <div class="name">
