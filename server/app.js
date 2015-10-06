@@ -17,9 +17,6 @@
     if (app.get('env') === 'development') {
         // This will change in production since we'll use the dist folder
         app.use(express.static(path.join(__dirname, '../client')));
-        // This covers serving up the index page
-        app.use(express.static(path.join(__dirname, '../client/.tmp')));
-        app.use(express.static(path.join(__dirname, '../client/app')));
 
         // Error Handling
         app.use(function(err, req, res, next) {
