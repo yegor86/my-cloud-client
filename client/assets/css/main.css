@@ -1,3 +1,24 @@
+a {
+    outline: medium none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body, input, textarea, select, button, .normal {
+    font-family: "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
+    font-size: 13px;
+    color: #3D464D;
+    font-weight: normal;
+}
+
+.clear {
+    clear: both;
+}
+
 #container {
     width: 990px;
     margin: 0 auto;
@@ -8,10 +29,35 @@
     width: 180px;
 }
 
+#browse-box {
+    padding-left: 190px;
+    min-height: 425px;
+}
+
+#browse-header {
+    position: fixed;
+    top: 50px;
+    z-index: 4;
+    width: 800px;
+    min-height: 98px;
+}
+
+#browse-items {
+    margin: 0px;
+    padding: 149px 0px 0px;
+}
+
 #browse-items .name {
+    display: block;
     float: left;
     height: 32px;
     width: 47%;
+}
+
+#browse-items .name .name-link {
+    color: #3D464D;
+    font-size: 13px;
+    white-space: pre;
 }
 
 #browse-items .modified {
@@ -22,4 +68,31 @@
 #browse-items .shared {
     float: left;
     width: 28%;
+}
+
+#browse-items .browse-item {
+    text-align: left;
+    padding: 7px 2px 6px;
+    margin: 0px 0px -1px;
+    list-style: outside none none;
+    line-height: 32px;
+    position: relative;
+    border-style: solid;
+    border-color: #E5E5E5;
+    border-width: 1px 0px;
+    border-image: none;
+}
+
+#browse-items .browse-item .icon {
+    float: left;
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin-top: -2px;
+    margin-right: 11px;
+    margin-left: -1px;
+    background-color: transparent;
+    vertical-align: bottom;
+    cursor: pointer;
+    border: 1px solid transparent;
 }
