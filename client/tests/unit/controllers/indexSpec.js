@@ -13,8 +13,8 @@ describe('IndexCtrl', function() {
         ctrl = $controller('IndexCtrl', {$scope: scope});
     }));
 
-    it('should be wasabi', function() {
+    it('should be 2', function() {
         httpBackend.flush();
-        expect(scope.files.length).toBe(2);
+        expect(scope.items.length).toBe(2);
     });
 });
