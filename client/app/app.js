@@ -8,11 +8,11 @@
     ]).config(function($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'views/index.html',
+                templateUrl: '../partials/index.html',
                 controller: 'IndexCtrl'
             })
             .when('/about', {
-                templateUrl: 'views/about.html',
+                templateUrl: '../partials/about.html',
                 controller: 'AboutCtrl'
             })
             .otherwise({
