@@ -26,4 +26,9 @@
     ```bash
          $ npm start
     ```
+7. Run tests
     
+    ```bash
+         $ gulp unit
+         $ gulp e2e
+    ```
