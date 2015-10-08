@@ -29,7 +29,9 @@
           <img class="icon" ng-src="/assets/images/icons/32x32_{{item.type}}.png" />
           <a class="name-link" target="_blank" href="">{{item.name}}</a>
         </div>
-        <div class="modified">--{{item.modified}}</div>
+        <div class="modified">
+          {{item.modified ? item.modified : "--"}}
+        </div>
         <div class="shared">--</div>
         <br class="clear" />
       </li>
