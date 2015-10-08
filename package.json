@@ -32,6 +32,6 @@
     "karma-cli": "~0.1.0",
     "protractor": "^1.8.*",
     "gulp-protractor": "^0.0.12",
-    "chromedriver": "~2.10.*"
+    "chromedriver": "~2.9.*"
   }
 }
