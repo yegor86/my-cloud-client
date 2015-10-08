@@ -6,13 +6,12 @@ describe('myCloudDriveApp', function() {
         browser.get('http://localhost:3000/');
     });
 
-    it('should have a title', function() {
-        var input = element(by.model('customSpice'));
-        var chiliButton = element(by.css('#chili'));
-        var text = element(by.css('p'));
+    it('should be a home link', function() {
+        var linkAbout = element(by.css('a'));
+        linkAbout.click();
 
-        chiliButton.click();
+        var linkHome = element(by.css('a'));
 
-        expect(input.getAttribute('value')).toBe('wasabi');
+        expect(linkHome.getText()).toBe('home');
     });
 });
