@@ -5,7 +5,7 @@ RUN npm install -g nodemon node-gyp gulp bower
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 RUN npm install socket.io
-RUN npm install
+RUN npm install --ignore-scripts
 RUN bower install --allow-root
 RUN gulp default
 
