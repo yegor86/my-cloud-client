@@ -1,15 +1,12 @@
 FROM node:4.0
 
 RUN mkdir -p /usr/src/app
-RUN npm install nodemon -g
+RUN npm install -g nodemon node-gyp gulp bower
+COPY . /usr/src/app
 WORKDIR /usr/src/app
-COPY package.json /usr/src/app/
-RUN npm install -g bower
-RUN npm install -g node-gyp
 RUN npm install socket.io
 RUN npm install
-COPY . /usr/src/app
-RUN npm install -g gulp
+RUN bower install --allow-root
 RUN gulp default
 
 CMD [ "npm", "start" ]
