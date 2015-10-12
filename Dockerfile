@@ -1,7 +1,11 @@
 FROM node:4.0
 
 RUN mkdir -p /usr/src/app
-RUN npm install -g nodemon node-gyp gulp bower
+RUN npm install -g  \
+    nodemon \
+    node-gyp \
+    gulp \
+    bower
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 RUN npm install socket.io
