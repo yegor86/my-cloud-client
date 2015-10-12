@@ -1,10 +1,7 @@
-'use strict';
+"use strict";
 
 var gulp = require('gulp'),
-    jshint = require('gulp-jshint'),
-    Server = require('karma').Server,
-    protractor = require('gulp-protractor').protractor;
-
+    jshint = require('gulp-jshint');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -24,11 +21,6 @@ gulp.task('hint', function() {
 
 gulp.task('inject', require('./tasks/inject'));
 
-gulp.task('unit', function(done) {
-    new Server({
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: true
-    }, done).start();
-});
+gulp.task('unit', require('./tasks/unit'));
 
 gulp.task('e2e', require('./tasks/e2e'));
