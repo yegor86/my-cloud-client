@@ -31,12 +31,4 @@ gulp.task('unit', function(done) {
     }, done).start();
 });
 
-gulp.task('e2e', function(done) {
-    var args = ['--baseUrl', 'http://127.0.0.1:9000'];
-    gulp.src(["./client/tests/e2e/*.js"])
-        .pipe(protractor({
-            configFile: "./protractor.conf.js",
-            args: args
-        }))
-        .on('error', function(e) { throw e; });
-});
+gulp.task('e2e', require('./tasks/e2e'));
