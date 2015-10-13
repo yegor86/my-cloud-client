@@ -7,6 +7,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 gulp.task('default', function() {
     gulp.start('hint');
+    gulp.start('compress');
     gulp.start('inject');
 });
 
@@ -25,3 +26,5 @@ gulp.task('inject', require('./tasks/inject'));
 gulp.task('unit', require('./tasks/unit'));
 
 gulp.task('e2e', require('./tasks/e2e'));
+
+gulp.task('compress', require('./tasks/minify'));

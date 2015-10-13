@@ -9,8 +9,7 @@
         var target = gulp.src('./client/index.html');
         var sources = gulp.src([
             './client/assets/css/*.css',
-            './client/app/app.js',
-            './client/app/**/*.js'], {read: false});
+            './client/dist/*.js'], {read: false});
 
         return target.pipe(inject(sources, {ignorePath: 'client/'}))
             .pipe(inject(gulp.src(bowerFiles(), {read: false}), {ignorePath: 'client/', name: 'bower'}))
