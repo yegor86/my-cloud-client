@@ -1,8 +1,10 @@
 (function(angular) {
     "use strict";
 
-    angular.module('myCloudDriveApp')
-        .controller('AboutCtrl', function($scope) {
+    var module = angular.module('myCloudDriveApp');
 
-        });
+    function AboutCtrl($scope) {
+    }
+
+    module.controller('AboutCtrl', AboutCtrl);
 }(angular));
