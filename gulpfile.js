@@ -28,3 +28,5 @@ gulp.task('unit', require('./tasks/unit'));
 gulp.task('e2e', require('./tasks/e2e'));
 
 gulp.task('compress', require('./tasks/minify'));
+
+gulp.task('postcss', require('./tasks/postcss'));
