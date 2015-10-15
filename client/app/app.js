@@ -5,7 +5,7 @@
         'ngRoute',
         'ngCookies',
         'ngResource'
-    ]).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    ]).config(function($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: '../partials/index.html',
@@ -19,5 +19,5 @@
                 redirectTo: '/'
             });
         $locationProvider.html5Mode(true);
-    }]);
+    });
 }());
