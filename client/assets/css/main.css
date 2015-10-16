@@ -154,3 +154,11 @@ body, input, textarea, select, button, .normal {
     cursor: pointer;
     border: 1px solid transparent;
 }
+
+#browse-items .browse-item .sprite-dir {
+    background: url("/assets/images/web_sprites.png") no-repeat left -376px;
+}
+
+#browse-items .browse-item .sprite-text {
+    background: url("/assets/images/web_sprites.png") no-repeat left -1872px;
+}
