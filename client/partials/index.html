@@ -9,22 +9,25 @@
     <div id="browse-header">
       <div id="browse-action-bar"></div>
       <div id="browse-sort">
-        <a id="name-sorter" class="sortable-column-header">
+        <a id="name-sorter" class="sortable-column-header" ng-click="sortType = 'name'; sortReverse = !sortReverse">
           <span>Name</span>
-          <img src="" />
+          <img class="arrow-down" ng-show="sortType == 'name' && !sortReverse" ng-src="/assets/images/icon_spacer.gif" />
+          <img class="arrow-up" ng-show="sortType == 'name' && sortReverse" ng-src="/assets/images/icon_spacer.gif" />
         </a>
-        <a id="modified-sorter" class="sortable-column-header">
+        <a id="modified-sorter" class="sortable-column-header" ng-click="sortType = 'modified'; sortReverse = !sortReverse">
           <span>Modified</span>
-          <img src="" />
+          <img class="arrow-down" ng-show="sortType == 'modified' && !sortReverse" ng-src="/assets/images/icon_spacer.gif" />
+          <img class="arrow-up" ng-show="sortType == 'modified' && sortReverse" ng-src="/assets/images/icon_spacer.gif" />
         </a>
-        <a id="shared-sorter" class="sortable-column-header">
+        <a id="shared-sorter" class="sortable-column-header" ng-click="sortType = 'sharedWith'; sortReverse = !sortReverse">
           <span>Shared with</span>
-          <img src="" />
+          <img class="arrow-down" ng-show="sortType == 'sharedWith' && !sortReverse" ng-src="/assets/images/icon_spacer.gif" />
+          <img class="arrow-up" ng-show="sortType == 'sharedWith' && sortReverse" ng-src="/assets/images/icon_spacer.gif" />
         </a>
       </div>
     </div>
     <ol id="browse-items">
-      <li class="browse-item" ng-repeat="item in items">
+      <li class="browse-item" ng-repeat="item in items | orderBy:sortType:sortReverse">
         <div class="name">
           <img class="icon sprite-{{item.type}}" ng-src="/assets/images/icon_spacer.gif" />
           <a class="name-link" target="_blank" href="">{{item.name}}</a>

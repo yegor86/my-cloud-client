@@ -5,6 +5,8 @@
 
     function IndexCtrl($scope, FileNavigator) {
         $scope.items = FileNavigator.query();
+        $scope.sortType = 'name';
+        $scope.sortReverse = false;
     }
 
     module.controller('IndexCtrl', IndexCtrl);
