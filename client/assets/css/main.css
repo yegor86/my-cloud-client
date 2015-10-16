@@ -154,6 +154,12 @@ body, input, textarea, select, button, .normal {
     border-image: none;
 }
 
+#browse-items .browse-item:hover {
+    background: #f5fafe;
+    border-color: #e1eaf1;
+    position: relative;
+}
+
 #browse-items .browse-item .icon {
     float: left;
     width: 32px;
