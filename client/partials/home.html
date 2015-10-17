@@ -26,18 +26,6 @@
         </a>
       </div>
     </div>
-    <ol id="browse-items">
-      <li class="browse-item" ng-repeat="item in items | orderBy:sortType:sortReverse">
-        <div class="name">
-          <img class="icon sprite-{{item.type}}" ng-src="/assets/images/icon_spacer.gif" />
-          <a class="name-link" target="_blank" href="">{{item.name}}</a>
-        </div>
-        <div class="modified">
-          {{item.modified ? item.modified : "--"}}
-        </div>
-        <div class="shared">--</div>
-        <br class="clear" />
-      </li>
-    </ol>
+    <section ui-view></section>
   </div>
 </div>
