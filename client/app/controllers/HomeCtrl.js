@@ -7,10 +7,11 @@
         $scope.items = FileManager.query({path: $stateParams.path || ""});
 
         $scope.clickOnItem = function(item) {
-            if (item.type == 'dir') {
-                $state.transitionTo($state.current, {path: $stateParams.path + '/' + item.name}, {
-                    reload: true
-                });
+            if (item.type === 'dir') {
+                $state.transitionTo(
+                    $state.current,
+                    {path: [$stateParams.path, item.name].join("/")},
+                    {reload: true});
             }
         };
     }
