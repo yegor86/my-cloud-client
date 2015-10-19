@@ -1,4 +1,4 @@
-(function() {
+(function(angular) {
     "use strict";
 
     function valToString(val) {
@@ -20,19 +20,19 @@
         $stateProvider
             .state('home', {
                 abstract: true,
-                templateUrl: '../partials/home.html'
+                templateUrl: 'partials/home.html'
             })
             .state('home.files', {
                 url: '/home{path:nonURIEncoded}',
-                templateUrl: '../partials/home.files.html',
+                templateUrl: 'partials/home.files.html',
                 controller: 'HomeCtrl'
             })
             .state('about', {
                 url: '/about',
-                templateUrl: '../partials/about.html',
+                templateUrl: 'partials/about.html',
                 controller: 'AboutCtrl'
             });
         $urlRouterProvider.when('/', '/home');
         $locationProvider.html5Mode(true);
     });
-}());
+}(angular));
