@@ -1,0 +1,31 @@
+<div id="sidebar">
+  <ul id="main-nav">
+    <li><a href="/about">About</a></li>
+  </ul>
+</div>
+<div id="browse">
+  <div id="context-menu-container"></div>
+  <div id="browse-box">
+    <div id="browse-header">
+      <div id="browse-action-bar"></div>
+      <div id="browse-sort">
+        <a id="name-sorter" class="sortable-column-header" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+          <span>Name</span>
+          <img class="arrow-down" ng-show="sortType == 'name' && !sortReverse" ng-src="/assets/images/icon_spacer.gif" />
+          <img class="arrow-up" ng-show="sortType == 'name' && sortReverse" ng-src="/assets/images/icon_spacer.gif" />
+        </a>
+        <a id="modified-sorter" class="sortable-column-header" ng-click="sortType = 'modified'; sortReverse = !sortReverse">
+          <span>Modified</span>
+          <img class="arrow-down" ng-show="sortType == 'modified' && !sortReverse" ng-src="/assets/images/icon_spacer.gif" />
+          <img class="arrow-up" ng-show="sortType == 'modified' && sortReverse" ng-src="/assets/images/icon_spacer.gif" />
+        </a>
+        <a id="shared-sorter" class="sortable-column-header" ng-click="sortType = 'sharedWith'; sortReverse = !sortReverse">
+          <span>Shared with</span>
+          <img class="arrow-down" ng-show="sortType == 'sharedWith' && !sortReverse" ng-src="/assets/images/icon_spacer.gif" />
+          <img class="arrow-up" ng-show="sortType == 'sharedWith' && sortReverse" ng-src="/assets/images/icon_spacer.gif" />
+        </a>
+      </div>
+    </div>
+    <section ui-view></section>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<ol id="browse-items">
+	<li class="browse-item" ng-repeat="item in items | orderBy:sortType:sortReverse">
+		<div class="name">
+			<img class="icon sprite-{{item.type}}" ng-src="/assets/images/icon_spacer.gif" ng-click="clickOnItem(item)" />
+			<a class="name-link" href="#" ng-click="clickOnItem(item)">{{item.name}}</a>
+		</div>
+		<div class="modified">
+			{{item.modified ? item.modified : "--"}}
+		</div>
+		<div class="shared">--</div>
+		<br class="clear" />
+	</li>
+</ol>

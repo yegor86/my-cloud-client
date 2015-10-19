@@ -96,6 +96,19 @@ body, input, textarea, select, button, .normal {
     background: #FFF;
 }
 
+#browse-header .sortable-column-header img {
+    width: 9px;
+    height: 5px;
+}
+
+#browse-header .sortable-column-header img.arrow-down {
+    background: url("/assets/images/web_sprites.png") no-repeat left -6224px;
+}
+
+#browse-header .sortable-column-header img.arrow-up {
+    background: url("/assets/images/web_sprites.png") no-repeat left -6238px;
+}
+
 #browse-action-bar {
     margin-bottom: 26px;
 }
@@ -141,6 +154,12 @@ body, input, textarea, select, button, .normal {
     border-image: none;
 }
 
+#browse-items .browse-item:hover {
+    background: #f5fafe;
+    border-color: #e1eaf1;
+    position: relative;
+}
+
 #browse-items .browse-item .icon {
     float: left;
     width: 32px;
@@ -153,4 +172,12 @@ body, input, textarea, select, button, .normal {
     vertical-align: bottom;
     cursor: pointer;
     border: 1px solid transparent;
+}
+
+#browse-items .browse-item .sprite-dir {
+    background: url("/assets/images/web_sprites.png") no-repeat left -376px;
+}
+
+#browse-items .browse-item .sprite-text {
+    background: url("/assets/images/web_sprites.png") no-repeat left -1872px;
 }
