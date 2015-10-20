@@ -9,6 +9,7 @@ a {
     outline: medium none;
     cursor: pointer;
     text-decoration: none;
+    color: #2895F1;
 }
 
 a:hover {
@@ -44,6 +45,10 @@ body, input, textarea, select, button, .normal {
 
 #main-nav li {
     list-style: none;
+}
+
+#main-nav a:hover {
+    text-decoration: none;
 }
 
 #browse-sort {
