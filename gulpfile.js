@@ -7,6 +7,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 gulp.task('default', function() {
     gulp.start('hint');
+    gulp.start('postcss');
     gulp.start('compress');
     gulp.start('inject');
 });
