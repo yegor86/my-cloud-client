@@ -1,4 +1,4 @@
-(function(){
+(function(module){
     "use strict";
 
     var express = require('express');
@@ -50,4 +50,4 @@
     app.use('/', router);
 
     module.exports = app;
-})();
+}(module));
