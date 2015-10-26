@@ -8,7 +8,7 @@
     module.exports = function() {
         var target = gulp.src('./client/index.html');
         var sources = gulp.src([
-            './client/assets/css/*.css',
+            './client/dist/*.css',
             './client/dist/*.js'], {read: false});
 
         return target.pipe(inject(sources, {ignorePath: 'client/'}))
