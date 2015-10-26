@@ -107,11 +107,11 @@ body, input, textarea, select, button, .normal {
 }
 
 #browse-header .sortable-column-header img.arrow-down {
-    background: url("/assets/images/web_sprites.png") no-repeat left -6224px;
+    background: resolve("web_sprites.png") no-repeat left -6224px;
 }
 
 #browse-header .sortable-column-header img.arrow-up {
-    background: url("/assets/images/web_sprites.png") no-repeat left -6238px;
+    background: resolve("web_sprites.png") no-repeat left -6238px;
 }
 
 #browse-action-bar {
@@ -180,9 +180,9 @@ body, input, textarea, select, button, .normal {
 }
 
 #browse-items .browse-item .sprite-dir {
-    background: url("/assets/images/web_sprites.png") no-repeat left -376px;
+    background: resolve("web_sprites.png") no-repeat left -376px;
 }
 
 #browse-items .browse-item .sprite-text {
-    background: url("/assets/images/web_sprites.png") no-repeat left -1872px;
+    background: resolve("web_sprites.png") no-repeat left -1872px;
 }

@@ -3,11 +3,17 @@
 
     var gulp = require('gulp'),
         postcss = require('gulp-postcss'),
-        autoprefixer = require('autoprefixer');
+        autoprefixer = require('autoprefixer'),
+        assets  = require('postcss-assets');
 
     module.exports = function() {
         var processors = [
-            autoprefixer({browsers: ['last 2 version']})
+            autoprefixer({browsers: ['last 2 version']}),
+            assets({
+                cachebuster: true,
+                basePath: './client',
+                loadPaths: ['assets/images/']
+            })
         ];
         return gulp.src('./client/assets/css/*.css')
             .pipe(postcss(processors))
