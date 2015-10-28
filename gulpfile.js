@@ -1,7 +1,8 @@
 "use strict";
 
 var gulp = require('gulp'),
-    jshint = require('gulp-jshint');
+    jshint = require('gulp-jshint'),
+    install = require("gulp-install");
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -31,3 +32,10 @@ gulp.task('e2e', require('./tasks/e2e'));
 gulp.task('compress', require('./tasks/minify'));
 
 gulp.task('postcss', require('./tasks/postcss'));
+
+gulp.task('install', function() {
+    gulp.src(['./bower.json', './package.json'])
+        .pipe(install());
+
+    gulp.start('default');
+});
