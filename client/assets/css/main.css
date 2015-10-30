@@ -237,6 +237,7 @@ ul.menu div.icon-frame {
 ul.menu div.icon-frame img {
     display: block;
     margin: auto;
+    padding-right: 3px;
 }
 
 ul.menu li:hover {
@@ -250,4 +251,12 @@ ul.menu li:hover {
 #context-menu .icon {
     width: 16px;
     height: 16px;
+}
+
+.closed {
+    display: none;
+}
+
+.opened {
+    display: block;
 }
