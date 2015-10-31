@@ -1,4 +1,4 @@
-(function(angular) {
+(function(angular, document) {
     "use strict";
 
     var module = angular.module('myCloudDriveApp');
@@ -64,4 +64,4 @@
             }
         };
     });
-}(angular));
+}(angular, document));
