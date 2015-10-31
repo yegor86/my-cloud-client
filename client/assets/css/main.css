@@ -23,6 +23,10 @@ body, input, textarea, select, button, .normal {
     font-weight: normal;
 }
 
+button:focus {
+    outline:0;
+}
+
 .clear {
     clear: both;
 }
@@ -248,15 +252,27 @@ ul.menu li:hover {
     background: resolve("web_sprites.png") no-repeat left -7093px;
 }
 
+#context-menu .sprite-context-menu-delete {
+    background: resolve("web_sprites.png") no-repeat left -6442px;
+}
+
+#context-menu .sprite-context-menu-rename {
+    background: resolve("web_sprites.png") no-repeat left -7172px;
+}
+
+#context-menu .sprite-context-menu-copy {
+    background: resolve("web_sprites.png") no-repeat left -6381px;
+}
+
 #context-menu .icon {
-    width: 16px;
-    height: 16px;
+    width: 19px;
+    height: 19px;
 }
 
 .closed {
-    display: none;
+    visibility: hidden;
 }
 
 .opened {
-    display: block;
+    visibility: visible;
 }
