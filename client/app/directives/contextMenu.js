@@ -6,7 +6,10 @@
     module.directive('contextMenu', function($document, ContextMenu) {
         var menu = {};
 
+        menu.isOpened = false;
+
         menu.open = function open(event, menuHtmlElement) {
+            menu.isOpened = true;
             var doc = $document[0].documentElement,
                 docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
                 docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
@@ -35,7 +38,10 @@
         };
 
         menu.close = function close(menuHtmlElement) {
-            menuHtmlElement.removeClass('opened');
+            if (menu.isOpened === true) {
+                menuHtmlElement.removeClass('opened');
+                menu.isOpened = false;
+            }
         };
 
         return {
