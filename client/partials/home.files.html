@@ -1,5 +1,5 @@
 <ol id="browse-items">
-	<li class="browse-item" ng-repeat="item in items | orderBy:sortType:sortReverse">
+	<li class="browse-item" ng-dblclick="clickOnItem(item)" ng-repeat="item in items | orderBy:sortType:sortReverse">
 		<div class="name">
 			<img class="icon sprite-{{item.type}}" ng-src="/assets/images/icon_spacer.gif" ng-click="clickOnItem(item)" />
 			<a class="name-link" href="#" ng-click="clickOnItem(item)">{{item.name}}</a>
