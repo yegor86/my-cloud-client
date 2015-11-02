@@ -24,8 +24,15 @@
             })
             .state('home.files', {
                 url: '/home{path:nonURIEncoded}',
-                templateUrl: 'partials/home.files.html',
-                controller: 'HomeCtrl'
+                views: {
+                    "filesList": {
+                        templateUrl: 'partials/home.files.html',
+                        controller: 'HomeCtrl'
+                    },
+                    "contextMenu": {
+                        templateUrl: 'partials/home.context-menu.html'
+                    }
+                }
             })
             .state('about', {
                 url: '/about',
