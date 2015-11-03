@@ -1,4 +1,4 @@
-(function(angular, document) {
+(function(angular) {
     "use strict";
 
     var module = angular.module('myCloudDriveApp');
@@ -8,13 +8,13 @@
 
         menu.isOpened = false;
 
-        menu.open = function open(event, menuHtmlElement) {
-            menu.isOpened = true;
+        menu.open = function open(event) {
+            this.isOpened = true;
             var doc = $document[0].documentElement,
                 docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
                 docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
-                elementWidth = menuHtmlElement[0].scrollWidth,
-                elementHeight = menuHtmlElement[0].scrollHeight,
+                elementWidth = this.menuHtmlElement[0].scrollWidth,
+                elementHeight = this.menuHtmlElement[0].scrollHeight,
                 docWidth = doc.clientWidth + docLeft,
                 docHeight = doc.clientHeight + docTop,
                 totalWidth = elementWidth + event.pageX,
@@ -31,16 +31,16 @@
                 top = top - (totalHeight - docHeight) - marginBottom;
             }
 
-            menuHtmlElement.css('top', top + 'px');
-            menuHtmlElement.css('left', left + 'px');
+            this.menuHtmlElement.css('top', top + 'px');
+            this.menuHtmlElement.css('left', left + 'px');
 
-            menuHtmlElement.addClass('opened');
+            this.menuHtmlElement.addClass('opened');
         };
 
-        menu.close = function close(menuHtmlElement) {
-            if (menu.isOpened === true) {
-                menuHtmlElement.removeClass('opened');
-                menu.isOpened = false;
+        menu.close = function close() {
+            if (this.isOpened === true) {
+                this.menuHtmlElement.removeClass('opened');
+                this.isOpened = false;
             }
         };
 
@@ -53,9 +53,9 @@
                     // Doesn't trigger $document 'contextmenu' event
                     event.stopPropagation();
 
-                    ContextMenu.menuHtmlElement = angular.element(document.getElementById(ContextMenu.id));
+                    menu.menuHtmlElement = angular.element($document[0].getElementById(ContextMenu.id));
 
-                    menu.open(event, ContextMenu.menuHtmlElement);
+                    menu.open(event);
                 });
 
                 // Trigger right click on the document
@@ -65,9 +65,9 @@
                 });
 
                 $document.bind('click', function(event) {
-                    menu.close(ContextMenu.menuHtmlElement);
+                    menu.close();
                 });
             }
         };
     });
-}(angular, document));
+}(angular));
