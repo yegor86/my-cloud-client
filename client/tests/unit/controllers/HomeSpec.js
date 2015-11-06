@@ -1,28 +1,31 @@
 describe('HomeCtrl', function() {
     "use strict";
 
-    var scope, ctrl, httpBackend, state;
+    var scope, ctrl, httpBackend, state, stateParams;
 
     beforeEach(module('myCloudDriveApp'));
-    beforeEach(inject(function($httpBackend, $rootScope, $controller, $state) {
+    beforeEach(inject(function($httpBackend, $rootScope, $controller, $templateCache) {
         httpBackend = $httpBackend;
-        state = $state;
+        stateParams = {path: 'dir'};
 
-        httpBackend.expectGET('/files//files.json')
-            .respond([
+        httpBackend.expectGET('/files/dir/files.json').respond([
                 {name: "some-image.jpg", type: "image"},
                 {name: "some-text.txt", type: "text"},
-                {name: "some-dir", type: "dir"}
-            ]);
-        httpBackend.expectGET('partials/home.html').respond('<html><head></head><body></body></html>');
-        httpBackend.expectGET('partials/home.files.html').respond('<ol><li></li></ol>');
+                {name: "some-dir", type: "dir"}]);
+        $templateCache.put('partials/home.html', '');
+        $templateCache.put('partials/home.files.html', '');
+        $templateCache.put('partials/home.context-menu.html', '');
 
         scope = $rootScope.$new();
-        ctrl = $controller('HomeCtrl', {$scope: scope});
+        ctrl = $controller('HomeCtrl', {$scope: scope, $stateParams: stateParams});
     }));
 
-    it('should be 3 items', function() {
+    it('should get the response with 3 items', function() {
         httpBackend.flush();
         expect(scope.items.length).toBe(3);
+    });
+
+    it('should not transition to dir', function() {
+        scope.clickOnItem({name: "image.png", type: "image"});
     });
 });
