@@ -4,10 +4,10 @@
     var module = angular.module('myCloudDriveApp');
 
     function FileManager($resource) {
-        return $resource('/files/:path/:fileId.json', {}, {
+        return $resource('/files:path', {}, {
             query: {
                 method: 'GET',
-                params: {path: '', fileId: 'files'},
+                params: {path: ''},
                 isArray: true
             }
         });
