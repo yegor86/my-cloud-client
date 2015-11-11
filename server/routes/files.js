@@ -1,7 +1,6 @@
 (function(module) {
     "use strict";
 
-    var path = require('path');
     var http = require('http');
 
     module.exports = function(router) {
@@ -13,14 +12,14 @@
                 method: 'GET'};
 
             var serverRequest = http.request(options, function(serverResponse) {
-                serverResponse.on('data', (chunk) => {
+                serverResponse.on('data', function(chunk) {
                     var files = [];
 
                     JSON.parse(chunk).forEach(function(item) {
                         files.push({
-                            name: item.fileName,
+                            name: item.fileName || '',
                             type: 'text',
-                            size: item.fileSize,
+                            size: item.fileSize || '',
                             modified: '',
                             sharedWith: []
                         });
