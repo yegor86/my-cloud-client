@@ -4,7 +4,12 @@
     var module = angular.module('myCloudDriveApp');
 
     function HomeCtrl($scope, $state, $stateParams, FileManager) {
-        $scope.items = FileManager.query({path: $stateParams.path || ""});
+
+        function errorHandler(error) {
+            $state.go('error');
+        }
+
+        $scope.items = FileManager.query({path: $stateParams.path || ""}, errorHandler);
 
         $scope.clickOnItem = function(item) {
             if (item.type === 'dir') {
