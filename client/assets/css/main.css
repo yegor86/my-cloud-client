@@ -252,6 +252,10 @@ ul.menu li:hover {
     background-color: #e3f2ff;
 }
 
+#context-menu .sprite-context-menu-download {
+    background: resolve("web_sprites.png") no-repeat left -6462px;
+}
+
 #context-menu .sprite-context-menu-open {
     background: resolve("web_sprites.png") no-repeat left -7093px;
 }
