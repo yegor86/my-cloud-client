@@ -53,7 +53,7 @@
                     // Doesn't trigger $document 'contextmenu' event
                     event.stopPropagation();
 
-                    menu.menuHtmlElement = angular.element($document[0].getElementById(ContextMenu.id));
+                    menu.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
 
                     menu.open(event);
                 });
@@ -62,6 +62,10 @@
                 $document.bind('contextmenu', function(event) {
                     // Prevent a default context menu
                     event.preventDefault();
+
+                    menu.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
+
+                    menu.open(event);
                 });
 
                 $document.bind('click', function(event) {
