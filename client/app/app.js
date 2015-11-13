@@ -38,6 +38,11 @@
                 url: '/about',
                 templateUrl: 'partials/about.html',
                 controller: 'AboutCtrl'
+            })
+            .state('error', {
+                url: '/error',
+                templateUrl: 'partials/error.html',
+                controller: 'ErrorCtrl'
             });
         $urlRouterProvider.when('/', '/home');
         $locationProvider.html5Mode(true);
