@@ -30,7 +30,8 @@
                         controller: 'HomeCtrl'
                     },
                     "contextMenu": {
-                        templateUrl: 'partials/home.context-menu.html'
+                        templateUrl: 'partials/home.context-menu.html',
+                        controller: 'ContextMenuCtrl'
                     }
                 }
             })
