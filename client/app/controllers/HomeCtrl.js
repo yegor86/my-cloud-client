@@ -6,10 +6,13 @@
     function HomeCtrl($scope, $state, $stateParams, FileManager) {
 
         function errorHandler(error) {
-            $state.go('error');
+            $state.transitionTo('error');
         }
 
-        $scope.items = FileManager.query({path: $stateParams.path || ""}, errorHandler);
+        function successHandler(response) {
+        }
+
+        $scope.items = FileManager.query({path: $stateParams.path || ""}, successHandler, errorHandler);
 
         $scope.clickOnItem = function(item) {
             if (item.type === 'dir') {

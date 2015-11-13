@@ -27,6 +27,7 @@
                 });
             });
             serverRequest.on('error', function(error) {
+                clientResponse.statusCode = 500;
                 clientResponse.json([{hasError: true, errorMessage: error.message, errorCode: error.code}]);
             });
             serverRequest.end();
