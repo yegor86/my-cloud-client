@@ -21,11 +21,13 @@
                             type: 'text',
                             size: item.fileSize || '',
                             modified: '',
-                            sharedWith: []
-                        });
+                            sharedWith: []});
                     });
                     clientResponse.send(files);
                 });
+            });
+            serverRequest.on('error', function(error) {
+                clientResponse.json([{hasError: true, errorMessage: error.message, errorCode: error.code}]);
             });
             serverRequest.end();
         });
