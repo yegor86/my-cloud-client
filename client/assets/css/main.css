@@ -272,6 +272,14 @@ ul.menu li:hover {
     background: resolve("web_sprites.png") no-repeat left -6381px;
 }
 
+#context-menu .sprite-context-menu-upload {
+    background: resolve("web_sprites.png") no-repeat left -7842px;
+}
+
+#context-menu .sprite-context-menu-new-folder {
+    background: resolve("web_sprites.png") no-repeat left -2166px;
+}
+
 #context-menu .icon {
     width: 19px;
     height: 19px;
