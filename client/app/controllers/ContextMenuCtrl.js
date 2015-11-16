@@ -3,8 +3,8 @@
 
     var module = angular.module('myCloudDriveApp');
 
-    function ContextMenuCtrl($scope, ContextMenu) {
-        $scope.actions = ContextMenu.getContextMenuActions('file');
+    function ContextMenuCtrl($scope) {
+        $scope.actions = [];
     }
 
     module.controller('ContextMenuCtrl', ContextMenuCtrl);

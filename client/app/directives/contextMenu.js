@@ -46,6 +46,10 @@
 
         return {
             link: function($scope, $element) {
+                menu.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
+
+                menu.scope = menu.menuHtmlElement.scope();
+
                 // Trigger right click on the element(e.g. file)
                 $element.bind('contextmenu', function(event) {
                     // Prevent a default context menu
@@ -53,7 +57,10 @@
                     // Doesn't trigger $document 'contextmenu' event
                     event.stopPropagation();
 
-                    menu.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
+                    // Executes a function outside of the context menu controller
+                    menu.scope.$apply(function() {
+                        menu.scope.actions = ContextMenu.getContextMenuActions('file');
+                    });
 
                     menu.open(event);
                 });
@@ -63,7 +70,10 @@
                     // Prevent a default context menu
                     event.preventDefault();
 
-                    menu.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
+                    // Executes a function outside of the context menu controller
+                    menu.scope.$apply(function() {
+                        menu.scope.actions = ContextMenu.getContextMenuActions('document');
+                    });
 
                     menu.open(event);
                 });
