@@ -364,6 +364,10 @@ ul.menu li:hover {
     margin-right: 10px;
 }
 
+#upload-input {
+    display: none;
+}
+
 .blue-button {
     background: #007ee5 linear-gradient(#168add, #007ee5);
     border: 1px solid #0c6ebe;
