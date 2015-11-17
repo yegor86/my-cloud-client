@@ -25,13 +25,17 @@
             .state('home.files', {
                 url: '/home{path:nonURIEncoded}',
                 views: {
-                    "filesList": {
+                    filesList: {
                         templateUrl: 'partials/home.files.html',
                         controller: 'HomeCtrl'
                     },
-                    "contextMenu": {
+                    contextMenu: {
                         templateUrl: 'partials/home.context-menu.html',
                         controller: 'ContextMenuCtrl'
+                    },
+                    upload: {
+                        templateUrl: 'partials/home.upload.html',
+                        controller: 'UploadCtrl'
                     }
                 }
             })
