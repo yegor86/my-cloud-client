@@ -13,6 +13,6 @@ RUN npm install --ignore-scripts
 RUN bower install --allow-root
 RUN gulp default
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "pm2" ]
 
 EXPOSE 3000

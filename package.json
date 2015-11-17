@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "scripts": {
     "postinstall": "bower install --allow-root",
-    "start": "pm2 ./server/bin/www",
+    "start": "nodemon ./server/bin/www",
+    "pm2": "pm2 ./server/bin/www",
     "test": "karma start karma.conf.js"
   },
   "repository": {
