@@ -9,6 +9,11 @@
                 method: 'GET',
                 params: {path: ''},
                 isArray: true
+            },
+            upload: {
+                method: 'POST',
+                params: {path: '/upload'},
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }
         });
     }

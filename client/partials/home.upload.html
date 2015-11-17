@@ -3,9 +3,12 @@
   <section id="modal-content">
     <span>Choose files to upload to your Dropbox. You can select more than one file at a time. You can also drag and drop files anywhere on this page to start uploading.</span>
     <section id="upload-buttons">
-      <input type="button" id="upload-choose-button" value="Choose files" class="blue-button" />
+      <input type="button" id="upload-choose-button" value="Choose files" class="blue-button" upload />
       <input type="button" id="upload-cancel-button" value="Cancel" class="grey-button" ng-click="close()" />
     </section>
+  </section>
+  <section id="upload-input-container">
+    <input type="file" multiple id="upload-input" />
   </section>
 </div>
 <div ng-click="close()" id="modal-overlay" class="closed"></div>
