@@ -3,7 +3,7 @@
 
     var module = angular.module('myCloudDriveApp');
 
-    function ContextMenu() {
+    function ContextMenuManager() {
         var actions = {
             download: {name: 'download', title: 'Download'},
             open: {name: 'open', title: 'Open'},
@@ -25,5 +25,5 @@
         };
     }
 
-    module.factory('ContextMenu', ContextMenu);
+    module.factory('ContextMenuManager', ContextMenuManager);
 }(angular));
