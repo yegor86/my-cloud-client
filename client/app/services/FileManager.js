@@ -13,7 +13,7 @@
             upload: {
                 method: 'POST',
                 params: {path: '/upload'},
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                headers: {'Content-Type': 'multipart/form-data; boundary=63iPy32oty'}
             }
         });
     }
