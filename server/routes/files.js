@@ -13,16 +13,24 @@
 
             var serverRequest = http.request(options, function(serverResponse) {
                 serverResponse.on('data', function(chunk) {
-                    var files = [];
+                    var files = [],
+                        data;
 
-                    JSON.parse(chunk).forEach(function(item) {
-                        files.push({
-                            name: item.fileName || '',
-                            type: 'text',
-                            size: item.fileSize || '',
-                            modified: '',
-                            sharedWith: []});
-                    });
+                    try {
+                        data = JSON.parse(chunk);
+                        if (data.error === 'undefined') {
+                            data.forEach(function(item) {
+                                files.push({
+                                    name: item.fileName || '',
+                                    type: 'text',
+                                    size: item.fileSize || '',
+                                    modified: '',
+                                    sharedWith: []});
+                            });
+                        }
+                    } catch(error) {
+                        return console.error(error.message);
+                    }
                     clientResponse.send(files);
                 });
             });
