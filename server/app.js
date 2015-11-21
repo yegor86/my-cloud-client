@@ -45,7 +45,7 @@
         });
     }
 
-    var router = require('./routes/routes');
+    var router = require('./routes');
 
     app.use('/', router);
 
