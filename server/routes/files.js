@@ -7,7 +7,7 @@
         router.get('/files(\/?[a-zA-Z0-9_-]?)*', function(clientRequest, clientResponse) {
             var options = {
                 host: '127.0.0.1',
-                path: clientRequest.url.replace('%2F', '/').replace('/files', '/files/list/admin@mail.com'),
+                path: clientRequest.url.replace(/%2F/g, '/').replace('/files', '/files/list/admin@mail.com'),
                 port: '3030',
                 method: 'GET'};
 
