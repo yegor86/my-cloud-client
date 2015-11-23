@@ -7,7 +7,8 @@
 
     angular.module('myCloudDriveApp', [
         'ui.router',
-        'ngResource'
+        'ngResource',
+        'lr.upload'
     ]).config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
         // Register a custom type with regexp to replace encoded slashes
         // https://github.com/angular-ui/ui-router/issues/1119#issuecomment-64696060
