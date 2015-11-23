@@ -17,8 +17,6 @@
                     $scope.upload(event.target.files);
                     // Close the modal box
                     $scope.close();
-
-                    $state.reload($state.current);
                 });
             }
         };

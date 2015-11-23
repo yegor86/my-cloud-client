@@ -3,7 +3,7 @@
 
     var module = angular.module('myCloudDriveApp');
 
-    function UploadCtrl($document, $scope, FileManager) {
+    function UploadCtrl($document, $state, $scope, upload, FileManager) {
         $scope.close = function() {
             var modalHtmlElement = angular.element($document[0].getElementById('modal')),
                 modalOverlayHtmlElement = angular.element($document[0].getElementById('modal-overlay'));
@@ -12,11 +12,20 @@
             close(modalOverlayHtmlElement);
         };
 
-        $scope.upload = function(files) {
-            var formData = new FormData();
-            formData.append('file', files[0]);
+        function successHandler(response) {
+            $state.reload($state.current);
+        }
 
-            FileManager.upload(formData);
+        $scope.upload = function(files) {
+            upload({
+                url: FileManager.upload.path,
+                method: FileManager.upload.method,
+                data: {
+                    filePath: files[0].name,
+                    email: 'admin@mail.com',
+                    file: files[0]
+                }
+            }).then(successHandler);
         };
 
         function close(element) {
