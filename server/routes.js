@@ -6,6 +6,9 @@
 
     require('./routes/home')(router);
     require('./routes/about')(router);
+    require('./routes/files')(router);
+    require('./routes/error')(router);
+    require('./routes/upload')(router);
 
     module.exports = router;
 }(module));
