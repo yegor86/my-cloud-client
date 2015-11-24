@@ -9,6 +9,10 @@ SCRIPT
 Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: $script
 
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 1024
+  end
+
   config.vm.define "webclient" do |container| 
     container.vm.box = "ubuntu/trusty64"
     container.vm.box_url = "https://atlas.hashicorp.com/ubuntu/boxes/trusty64"
