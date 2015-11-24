@@ -7,7 +7,8 @@
 
     angular.module('myCloudDriveApp', [
         'ui.router',
-        'ngResource'
+        'ngResource',
+        'lr.upload'
     ]).config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
         // Register a custom type with regexp to replace encoded slashes
         // https://github.com/angular-ui/ui-router/issues/1119#issuecomment-64696060
@@ -25,12 +26,17 @@
             .state('home.files', {
                 url: '/home{path:nonURIEncoded}',
                 views: {
-                    "filesList": {
+                    filesList: {
                         templateUrl: 'partials/home.files.html',
                         controller: 'HomeCtrl'
                     },
-                    "contextMenu": {
-                        templateUrl: 'partials/home.context-menu.html'
+                    contextMenu: {
+                        templateUrl: 'partials/home.context-menu.html',
+                        controller: 'ContextMenuCtrl'
+                    },
+                    upload: {
+                        templateUrl: 'partials/home.upload.html',
+                        controller: 'UploadCtrl'
                     }
                 }
             })
@@ -38,6 +44,11 @@
                 url: '/about',
                 templateUrl: 'partials/about.html',
                 controller: 'AboutCtrl'
+            })
+            .state('error', {
+                url: '/error',
+                templateUrl: 'partials/error.html',
+                controller: 'ErrorCtrl'
             });
         $urlRouterProvider.when('/', '/home');
         $locationProvider.html5Mode(true);

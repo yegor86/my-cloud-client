@@ -3,7 +3,7 @@
 
     var module = angular.module('myCloudDriveApp');
 
-    module.directive('contextMenu', function($document, ContextMenu) {
+    module.directive('contextMenu', function($document, ContextMenuManager) {
         var menu = {};
 
         menu.isOpened = false;
@@ -27,7 +27,7 @@
             }
 
             if (totalHeight > docHeight) {
-                var marginBottom = ContextMenu.marginBottom || 0;
+                var marginBottom = ContextMenuManager.marginBottom || 0;
                 top = top - (totalHeight - docHeight) - marginBottom;
             }
 
@@ -46,6 +46,10 @@
 
         return {
             link: function($scope, $element) {
+                menu.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
+
+                menu.scope = menu.menuHtmlElement.scope();
+
                 // Trigger right click on the element(e.g. file)
                 $element.bind('contextmenu', function(event) {
                     // Prevent a default context menu
@@ -53,7 +57,10 @@
                     // Doesn't trigger $document 'contextmenu' event
                     event.stopPropagation();
 
-                    menu.menuHtmlElement = angular.element($document[0].getElementById(ContextMenu.id));
+                    // Executes a function outside of the context menu controller
+                    menu.scope.$apply(function() {
+                        menu.scope.actions = ContextMenuManager.getContextMenuActions('file');
+                    });
 
                     menu.open(event);
                 });
@@ -62,6 +69,13 @@
                 $document.bind('contextmenu', function(event) {
                     // Prevent a default context menu
                     event.preventDefault();
+
+                    // Executes a function outside of the context menu controller
+                    menu.scope.$apply(function() {
+                        menu.scope.actions = ContextMenuManager.getContextMenuActions('document');
+                    });
+
+                    menu.open(event);
                 });
 
                 $document.bind('click', function(event) {

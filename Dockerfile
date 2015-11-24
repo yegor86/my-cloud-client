@@ -2,7 +2,7 @@ FROM node:4.0
 
 RUN mkdir -p /usr/src/app
 RUN npm install -g  \
-    nodemon \
+    pm2 \
     node-gyp \
     gulp \
     bower
@@ -13,6 +13,6 @@ RUN npm install --ignore-scripts
 RUN bower install --allow-root
 RUN gulp default
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "pm2" ]
 
 EXPOSE 3000
