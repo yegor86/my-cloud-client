@@ -4,7 +4,7 @@
   "scripts": {
     "postinstall": "bower install --allow-root",
     "start": "nodemon ./server/bin/www",
-    "pm2": "pm2 ./server/bin/www",
+    "pm2": "pm2 start ./server/bin/www",
     "test": "karma start karma.conf.js"
   },
   "repository": {
