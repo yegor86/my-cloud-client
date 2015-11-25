@@ -5,7 +5,7 @@
 			<a class="name-link" href="#" ng-click="clickOnItem(item)">{{::item.name}}</a>
 		</div>
 		<div class="modified">
-			{{::item.modified ? item.modified : "--"}}
+			{{::item.modified ? item.modified : "--" | date: 'dd/MM/yyyy HH:mm a' :timezone}}
 		</div>
 		<div class="shared">--</div>
 		<br class="clear" />
