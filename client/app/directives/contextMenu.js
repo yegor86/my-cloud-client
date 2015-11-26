@@ -3,7 +3,7 @@
 
     var module = angular.module('myCloudDriveApp');
 
-    module.directive('contextMenu', function($document, ContextMenuManager) {
+    module.directive('contextMenu', function($document, ContextMenu) {
         var menu = {};
 
         menu.isOpened = false;
@@ -27,7 +27,7 @@
             }
 
             if (totalHeight > docHeight) {
-                var marginBottom = ContextMenuManager.marginBottom || 0;
+                var marginBottom = ContextMenu.marginBottom || 0;
                 top = top - (totalHeight - docHeight) - marginBottom;
             }
 
@@ -59,7 +59,7 @@
 
                     // Executes a function outside of the context menu controller
                     menu.scope.$apply(function() {
-                        menu.scope.actions = ContextMenuManager.getContextMenuActions('file');
+                        menu.scope.actions = ContextMenu.getContextMenuActions('file');
                     });
 
                     menu.open(event);
@@ -72,7 +72,7 @@
 
                     // Executes a function outside of the context menu controller
                     menu.scope.$apply(function() {
-                        menu.scope.actions = ContextMenuManager.getContextMenuActions('document');
+                        menu.scope.actions = ContextMenu.getContextMenuActions('document');
                     });
 
                     menu.open(event);
