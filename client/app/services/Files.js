@@ -3,7 +3,7 @@
 
     var module = angular.module('myCloudDriveApp');
 
-    function FileManager($resource) {
+    function Files($resource) {
         return $resource('/files:path', {}, {
             query: {
                 method: 'GET',
@@ -13,5 +13,5 @@
         });
     }
 
-    module.factory('FileManager', FileManager);
+    module.factory('Files', Files);
 }(angular));
