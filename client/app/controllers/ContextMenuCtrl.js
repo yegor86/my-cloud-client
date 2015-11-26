@@ -1,20 +1,9 @@
-(function(angular) {
+(function (angular) {
     "use strict";
 
     var module = angular.module('myCloudDriveApp');
 
     function ContextMenuCtrl($document, $scope) {
-        $scope.actions = [];
-
-        $scope.click = function(action) {
-            if (action.name === "upload") {
-                var modalHtmlElement = angular.element($document[0].getElementById('modal')),
-                    modalOverlayHtmlElement = angular.element($document[0].getElementById('modal-overlay'));
-
-                open(modalHtmlElement);
-                open(modalOverlayHtmlElement);
-            }
-        };
 
         function open(element) {
             if (element instanceof jQuery || element instanceof Object) {
@@ -22,6 +11,26 @@
             }
             return false;
         }
+
+        function openModalWindow(modalHtmlElement) {
+            var modalOverlayHtmlElement = angular.element($document[0].getElementById('modal-overlay'));
+
+            open(modalHtmlElement);
+            open(modalOverlayHtmlElement);
+        }
+
+        $scope.actions = [];
+
+        $scope.click = function (action) {
+            switch (action.name) {
+                case "upload":
+                    openModalWindow(angular.element($document[0].getElementById('modal-upload')));
+                    break;
+                case "new-folder":
+                    openModalWindow(angular.element($document[0].getElementById('modal-create-folder')));
+                    break;
+            }
+        };
     }
 
     module.controller('ContextMenuCtrl', ContextMenuCtrl);
