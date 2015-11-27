@@ -30,7 +30,7 @@
                                 name: item.fileName || '',
                                 type: item.extension || (item.folder === true ? 'dir' : ''),
                                 size: item.fileSize || '',
-                                modified: '',
+                                modified: item.updated || '',
                                 sharedWith: []});
                         });
                     } catch(error) {
