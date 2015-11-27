@@ -4,7 +4,7 @@
     var gulp = require('gulp'),
         inject = require('gulp-inject'),
         bowerFiles = require('main-bower-files'),
-        argv = require('yargs').argv
+        argv = require('yargs').argv;
 
     module.exports = function() {
         var target = gulp.src('./client/index.html');
