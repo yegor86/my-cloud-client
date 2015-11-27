@@ -41,6 +41,7 @@
     "karma-jasmine": "~0.2.0",
     "main-bower-files": "~2.9.*",
     "postcss-assets": "^3.0.2",
-    "protractor": "^1.8.*"
+    "protractor": "^1.8.*",
+    "yargs": "^3.30.0"
   }
 }

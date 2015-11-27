@@ -1,22 +1,22 @@
-(function(angular) {
+(function (angular) {
     "use strict";
 
     var module = angular.module('myCloudDriveApp');
 
-    module.directive('upload', function($document, $state) {
+    module.directive('upload', function ($state) {
 
         return {
-            link: function($scope, $element) {
+            link: function ($scope, $element) {
                 var uploadHtmlElement = $('#upload-input');
 
-                $element.bind('click', function(event) {
+                $element.bind('click', function (event) {
                     uploadHtmlElement.trigger('click');
                 });
 
-                uploadHtmlElement.bind('change', function(event) {
+                uploadHtmlElement.bind('change', function (event) {
                     $scope.upload(event.target.files);
-                    // Close the modal box
-                    $scope.close();
+                    // Close the modal box after uploading
+                    $scope.closeModalWindow(event);
                 });
             }
         };

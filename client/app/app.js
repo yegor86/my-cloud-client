@@ -1,4 +1,4 @@
-(function(angular) {
+(function (angular) {
     "use strict";
 
     function valToString(val) {
@@ -9,7 +9,7 @@
         'ui.router',
         'ngResource',
         'lr.upload'
-    ]).config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
+    ]).config(function ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
         // Register a custom type with regexp to replace encoded slashes
         // https://github.com/angular-ui/ui-router/issues/1119#issuecomment-64696060
         $urlMatcherFactoryProvider.type('nonURIEncoded', {
@@ -21,14 +21,15 @@
         $stateProvider
             .state('home', {
                 abstract: true,
-                templateUrl: 'partials/home.html'
+                templateUrl: 'partials/home.html',
+                controller: 'HomeCtrl'
             })
             .state('home.files', {
                 url: '/home{path:nonURIEncoded}',
                 views: {
                     filesList: {
                         templateUrl: 'partials/home.files.html',
-                        controller: 'HomeCtrl'
+                        controller: 'FilesCtrl'
                     },
                     contextMenu: {
                         templateUrl: 'partials/home.context-menu.html',
@@ -37,6 +38,10 @@
                     upload: {
                         templateUrl: 'partials/home.upload.html',
                         controller: 'UploadCtrl'
+                    },
+                    createFolder: {
+                        templateUrl: 'partials/home.create-folder.html',
+                        controller: 'CreateFolderCtrl'
                     }
                 }
             })

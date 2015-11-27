@@ -1,26 +1,31 @@
-(function(angular) {
+(function (angular) {
     "use strict";
 
     var module = angular.module('myCloudDriveApp');
 
-    function HomeCtrl($scope, $state, $stateParams, FileManager) {
+    function HomeCtrl($document, $scope) {
 
-        function errorHandler(error) {
-            $state.transitionTo('error');
-        }
-
-        function successHandler(response) {
-        }
-
-        $scope.items = FileManager.files.query({path: $stateParams.path || ""}, successHandler, errorHandler);
-
-        $scope.clickOnItem = function(item) {
-            if (item.type === 'dir') {
-                $state.transitionTo(
-                    $state.current,
-                    {path: [$stateParams.path, item.name].join("/")},
-                    {reload: true});
+        function close(element) {
+            if ((element instanceof jQuery || element instanceof Object) && element.hasClass('opened')) {
+                return element.removeClass('opened');
             }
+            return false;
+        }
+
+        // Set a default sort type
+        $scope.sortType = 'name';
+
+        $scope.closeModalWindow = function (modalHtmlElement) {
+            var modalOverlayHtmlElement = angular.element($document[0].getElementById('modal-overlay'));
+
+            close(modalOverlayHtmlElement);
+            close(modalHtmlElement);
+        };
+
+        // Dispatch a 'clickOnOverlay' event to child scopes. This is required to
+        // close the modal window that is opened at the moment.
+        $scope.clickOnOverlay = function () {
+            $scope.$broadcast('clickOnOverlay');
         };
     }
 
