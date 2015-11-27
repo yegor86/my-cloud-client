@@ -12,6 +12,9 @@
             return false;
         }
 
+        // Set a default sort type
+        $scope.sortType = 'name';
+
         $scope.closeModalWindow = function (modalHtmlElement) {
             var modalOverlayHtmlElement = angular.element($document[0].getElementById('modal-overlay'));
 
