@@ -3,26 +3,25 @@
 
     var module = angular.module('myCloudDriveApp');
 
-    function UploadCtrl($document, $state, $stateParams, $scope, upload) {
+    function UploadCtrl($document, $state, $stateParams, $scope, Upload) {
 
         function successHandler(response) {
             $state.reload($state.current);
         }
 
         $scope.upload = function (files) {
-            var path = $stateParams.path;
+            var path = $stateParams.path,
+                file = files[0];
+
             // Remove a prefix slash of the path
             if (path[0] === '/') {
                 path = path.slice(1, path.length);
             }
-            upload({
-                url: '/files/upload',
-                method: 'POST',
-                data: {
-                    filePath: [path, files[0].name].join('/'),
-                    email: 'admin@mail.com',
-                    file: files[0]
-                }
+
+            Upload.send({
+                filePath: (path.length > 0) ? [path, file.name].join('/') : file.name,
+                email: 'admin@mail.com',
+                file: file
             }).then(successHandler);
         };
 
