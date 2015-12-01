@@ -27,9 +27,9 @@
                         data = JSON.parse(chunk);
                         data.forEach(function(item) {
                             files.push({
-                                name: item.fileName || '',
+                                name: item.name || '',
                                 type: item.extension || (item.folder === true ? 'dir' : ''),
-                                size: item.fileSize || '',
+                                size: item.size || '',
                                 modified: item.updated || '',
                                 sharedWith: []});
                         });

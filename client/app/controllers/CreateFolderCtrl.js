@@ -24,10 +24,6 @@
 
         $scope.create = function (event) {
             var path = $stateParams.path;
-            // Remove a prefix slash of the path
-            if (path[0] === '/') {
-                path = path.slice(1, path.length);
-            }
 
             CreateFolder.send({
                 path: (path.length > 0) ? [path, $scope.folderName].join('/') : $scope.folderName,

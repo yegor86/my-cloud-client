@@ -1,0 +1,33 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.gitignore"
+			],
+			"file_include_patterns":
+			[
+				"*.js",
+				"*.json",
+				"*.html",
+				"*.css"
+			],
+			"folder_exclude_patterns":
+			[
+				".git",
+				".vagrant",
+				"node_modules"
+			],
+			"name": "client",
+			"path": "client"
+		},
+		{
+			"name": "server",
+			"path": "server"
+		},
+		{
+			"path": "docs"
+		}
+	]
+}

@@ -7,6 +7,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- inject:css -->
+  <link rel="stylesheet" href="/dist/main.css">
   <!-- endinject -->
 </head>
 <body ng-app="myCloudDriveApp">
@@ -17,8 +18,29 @@
   <div id="container" ui-view></div>
 
   <!-- bower:js -->
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bower_components/angular-upload/angular-upload.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <!-- endinject -->
   <!-- inject:js -->
+  <script src="/app/app.js"></script>
+  <script src="/app/controllers/AboutCtrl.js"></script>
+  <script src="/app/controllers/ContextMenuCtrl.js"></script>
+  <script src="/app/controllers/CreateFolderCtrl.js"></script>
+  <script src="/app/controllers/ErrorCtrl.js"></script>
+  <script src="/app/controllers/FilesCtrl.js"></script>
+  <script src="/app/controllers/HomeCtrl.js"></script>
+  <script src="/app/controllers/UploadCtrl.js"></script>
+  <script src="/app/directives/contextMenu.js"></script>
+  <script src="/app/directives/upload.js"></script>
+  <script src="/app/services/ContextMenu.js"></script>
+  <script src="/app/services/CreateFolder.js"></script>
+  <script src="/app/services/Files.js"></script>
+  <script src="/app/services/Upload.js"></script>
   <!-- endinject -->
 </body>
 </html>

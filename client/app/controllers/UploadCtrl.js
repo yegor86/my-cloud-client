@@ -13,11 +13,6 @@
             var path = $stateParams.path,
                 file = files[0];
 
-            // Remove a prefix slash of the path
-            if (path[0] === '/') {
-                path = path.slice(1, path.length);
-            }
-
             Upload.send({
                 filePath: (path.length > 0) ? [path, file.name].join('/') : file.name,
                 email: 'admin@mail.com',
