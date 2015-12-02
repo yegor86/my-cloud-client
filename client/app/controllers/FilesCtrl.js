@@ -15,7 +15,7 @@
         $scope.items = Files.query({path: $stateParams.path || ""}, successHandler, errorHandler);
 
         $scope.clickOnItem = function (item) {
-            if (item.type === 'dir') {
+            if (item.folder === true) {
                 // Remove a slash in the end of the path to avoid double slashes after concatenation
                 if ($stateParams.path[$stateParams.path.length - 1] === '/') {
                     $stateParams.path = $stateParams.path.slice(0, -1);

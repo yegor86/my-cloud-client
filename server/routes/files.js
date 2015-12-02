@@ -20,23 +20,7 @@
 
             var serverRequest = http.request(options, function (serverResponse) {
                 serverResponse.on('data', function (chunk) {
-                    var files = [],
-                        data;
-
-                    try {
-                        data = JSON.parse(chunk);
-                        data.forEach(function(item) {
-                            files.push({
-                                name: item.fileName || '',
-                                type: item.extension || (item.folder === true ? 'dir' : ''),
-                                size: item.fileSize || '',
-                                modified: item.updated || '',
-                                sharedWith: []});
-                        });
-                    } catch(error) {
-                        return console.error(error.message);
-                    }
-                    clientResponse.send(files);
+                    clientResponse.send(chunk);
                 });
             });
             serverRequest.on('error', function (error) {
