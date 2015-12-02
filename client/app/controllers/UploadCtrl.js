@@ -14,7 +14,7 @@
                 file = files[0];
 
             Upload.send({
-                filePath: (path.length > 0) ? [path, file.name].join('/') : file.name,
+                filePath: [path, file.name].join('/'),
                 email: 'admin@mail.com',
                 file: file
             }).then(successHandler);
