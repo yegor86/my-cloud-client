@@ -15,7 +15,7 @@
         $urlMatcherFactoryProvider.type('nonURIEncoded', {
             encode: valToString,
             decode: valToString,
-            pattern: /(?:\/?[a-zA-Z0-9_-]?)*/
+            pattern: /(?:\/?[a-zA-Z0-9_-\s]?)*/
         });
 
         $stateProvider
