@@ -22,8 +22,8 @@
                     uploadScope.progressbarModalOverlayHtmlElement = angular.element($document[0].getElementById('modal-overlay-progressbar'));
                     uploadScope.progressbarModalHtmlElement.scope().fileName = file.name;
 
-                    uploadScope.progressbarModalOverlayHtmlElement.addClass('opened');
-                    uploadScope.progressbarModalHtmlElement.addClass('opened');
+                    $scope.open(uploadScope.progressbarModalOverlayHtmlElement);
+                    $scope.open(uploadScope.progressbarModalHtmlElement);
 
                     $scope.upload(file);
                 });

@@ -8,8 +8,8 @@
         function successHandler(response) {
             $state.reload($state.current);
 
-            $scope.progressbarModalOverlayHtmlElement.removeClass('opened');
-            $scope.progressbarModalHtmlElement.removeClass('opened');
+            $scope.close($scope.progressbarModalOverlayHtmlElement);
+            $scope.close($scope.progressbarModalHtmlElement);
         }
 
         $scope.upload = function (file) {
