@@ -55,7 +55,6 @@
                 controller: 'AboutCtrl'
             })
             .state('error', {
-                url: '/error',
                 templateUrl: 'partials/error.html',
                 controller: 'ErrorCtrl'
             });
