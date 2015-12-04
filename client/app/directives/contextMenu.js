@@ -1,9 +1,9 @@
-(function(angular) {
+(function (angular) {
     "use strict";
 
     var module = angular.module('myCloudDriveApp');
 
-    module.directive('contextMenu', function($document, ContextMenu) {
+    module.directive('contextMenu', function ($document, ContextMenu) {
         var menu = {};
 
         menu.isOpened = false;
@@ -45,40 +45,52 @@
         };
 
         return {
-            link: function($scope, $element) {
+            link: function ($scope, $element) {
                 menu.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
 
                 menu.scope = menu.menuHtmlElement.scope();
 
                 // Trigger right click on the element(e.g. file)
-                $element.bind('contextmenu', function(event) {
+                $element.bind('contextmenu', function (event) {
                     // Prevent a default context menu
                     event.preventDefault();
                     // Doesn't trigger $document 'contextmenu' event
                     event.stopPropagation();
 
                     // Executes a function outside of the context menu controller
-                    menu.scope.$apply(function() {
+                    menu.scope.$apply(function () {
                         menu.scope.actions = ContextMenu.getContextMenuActions('file');
                     });
 
                     menu.open(event);
                 });
 
+                // Don't trigger the context menu on overlay
+                angular.element($document[0].getElementsByClassName('overlay'))
+                    .bind('contextmenu', function (event) {
+                        event.stopPropagation();
+                });
+
+                // Don't trigger the context menu on modal windows
+                angular.element($document[0].getElementsByClassName('modal'))
+                    .bind('contextmenu', function (event) {
+                        event.stopPropagation();
+                    });
+
                 // Trigger right click on the document
-                $document.bind('contextmenu', function(event) {
+                $document.bind('contextmenu', function (event) {
                     // Prevent a default context menu
                     event.preventDefault();
 
                     // Executes a function outside of the context menu controller
-                    menu.scope.$apply(function() {
+                    menu.scope.$apply(function () {
                         menu.scope.actions = ContextMenu.getContextMenuActions('document');
                     });
 
                     menu.open(event);
                 });
 
-                $document.bind('click', function(event) {
+                $document.bind('click', function (event) {
                     menu.close();
                 });
             }
