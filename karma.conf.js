@@ -1,7 +1,4 @@
-// Karma configuration
-// Generated on Tue Sep 15 2015 17:23:28 GMT+0300 (Финляндия (лето))
-
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -16,16 +13,15 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'client/bower_components/angular/angular.js',
-      'client/bower_components/angular-route/angular-route.js',
+      'client/bower_components/angular-upload/angular-upload.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
-      'client/bower_components/angular-cookies/angular-cookies.js',
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/bower_components/angular-resource/angular-resource.js',
       'client/app/app.js',
       'client/app/**/*.js',
       'client/app/*',
       'client/partials/*.html',
-      'client/tests/unit/controllers/*Spec.js'
+      'client/tests/unit/controllers/*Test.js'
     ],
 
 
