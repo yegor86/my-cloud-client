@@ -39,6 +39,10 @@
                         templateUrl: 'partials/home.upload.html',
                         controller: 'UploadCtrl'
                     },
+                    download: {
+                        templateUrl: 'partials/home.download.html',
+                        controller: 'DownloadCtrl'
+                    },
                     createFolder: {
                         templateUrl: 'partials/home.create-folder.html',
                         controller: 'CreateFolderCtrl'

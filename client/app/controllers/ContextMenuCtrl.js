@@ -26,6 +26,9 @@
                 case "upload":
                     openModalWindow(angular.element($document[0].getElementById('modal-upload')));
                     break;
+                case "download":
+                    openModalWindow(angular.element($document[0].getElementById('modal-download')));
+                    break;
                 case "new-folder":
                     openModalWindow(angular.element($document[0].getElementById('modal-create-folder')));
                     break;
