@@ -7,6 +7,9 @@
         // Set a default sort type
         $scope.sortType = 'name';
 
+        // Set a default location text while files are loading
+        $scope.location = 'Loading...';
+
         $scope.close = function (element) {
             if ((element instanceof jQuery || element instanceof Object) && element.hasClass('opened')) {
                 return element.removeClass('opened');
