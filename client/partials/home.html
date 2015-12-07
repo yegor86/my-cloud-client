@@ -5,6 +5,8 @@
 </div>
 <div id="browse" class="noselect">
   <section id="modal-container-upload" ui-view="upload"></section>
+  <section id="modal-container-upload-progressbar" ui-view="uploadProgressbar"></section>
+  <section id="modal-container-download" ui-view="download"></section>
   <section id="modal-container-create-folder" ui-view="createFolder"></section>
   <section id="context-menu-container" ui-view="contextMenu"></section>
   <div id="browse-box">
@@ -31,4 +33,5 @@
     <section ui-view="filesList"></section>
   </div>
 </div>
-<div id="modal-overlay" class="closed" ng-click="clickOnOverlay()"></div>
+<div id="modal-overlay" class="overlay closed" ng-click="clickOnOverlay()"></div>
+<div id="modal-overlay-progressbar" class="overlay closed"></div>

@@ -4,22 +4,28 @@
     var module = angular.module('myCloudDriveApp');
 
     function HomeCtrl($document, $scope) {
+        // Set a default sort type
+        $scope.sortType = 'name';
 
-        function close(element) {
+        $scope.close = function (element) {
             if ((element instanceof jQuery || element instanceof Object) && element.hasClass('opened')) {
                 return element.removeClass('opened');
             }
             return false;
-        }
+        };
 
-        // Set a default sort type
-        $scope.sortType = 'name';
+        $scope.open = function (element) {
+            if (element instanceof jQuery || element instanceof Object) {
+                return element.addClass('opened');
+            }
+            return false;
+        };
 
         $scope.closeModalWindow = function (modalHtmlElement) {
             var modalOverlayHtmlElement = angular.element($document[0].getElementById('modal-overlay'));
 
-            close(modalOverlayHtmlElement);
-            close(modalHtmlElement);
+            $scope.close(modalOverlayHtmlElement);
+            $scope.close(modalHtmlElement);
         };
 
         // Dispatch a 'clickOnOverlay' event to child scopes. This is required to

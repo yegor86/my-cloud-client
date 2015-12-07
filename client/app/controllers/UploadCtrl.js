@@ -7,11 +7,13 @@
 
         function successHandler(response) {
             $state.reload($state.current);
+
+            $scope.close($scope.progressbarModalOverlayHtmlElement);
+            $scope.close($scope.progressbarModalHtmlElement);
         }
 
-        $scope.upload = function (files) {
-            var path = $stateParams.path,
-                file = files[0];
+        $scope.upload = function (file) {
+            var path = $stateParams.path;
 
             Upload.send({
                 filePath: [path, file.name].join('/'),

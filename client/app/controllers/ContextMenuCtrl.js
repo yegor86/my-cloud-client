@@ -5,18 +5,11 @@
 
     function ContextMenuCtrl($document, $scope) {
 
-        function open(element) {
-            if (element instanceof jQuery || element instanceof Object) {
-                return element.addClass('opened');
-            }
-            return false;
-        }
-
         function openModalWindow(modalHtmlElement) {
             var modalOverlayHtmlElement = angular.element($document[0].getElementById('modal-overlay'));
 
-            open(modalHtmlElement);
-            open(modalOverlayHtmlElement);
+            $scope.open(modalHtmlElement);
+            $scope.open(modalOverlayHtmlElement);
         }
 
         $scope.actions = [];

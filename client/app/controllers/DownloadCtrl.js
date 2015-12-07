@@ -16,8 +16,8 @@
 
         	window.alert("Hello world: " + path);
         };
+    }
 
-        module.controller('DownloadCtrl', DownloadCtrl);
-	}
+    module.controller('DownloadCtrl', DownloadCtrl);
 
 }(angular));

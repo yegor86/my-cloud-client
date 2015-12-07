@@ -15,7 +15,7 @@
         $urlMatcherFactoryProvider.type('nonURIEncoded', {
             encode: valToString,
             decode: valToString,
-            pattern: /(?:\/?[a-zA-Z0-9_-]?)*/
+            pattern: /(?:\/?[a-zA-Z0-9_-\s]?)*/
         });
 
         $stateProvider
@@ -39,8 +39,12 @@
                         templateUrl: 'partials/home.upload.html',
                         controller: 'UploadCtrl'
                     },
+                    uploadProgressbar: {
+                        templateUrl: 'partials/home.upload-progressbar.html',
+                        controller: 'UploadCtrl'
+                    }, 
                     download: {
-                        templateUrl: 'partials/home.download.html',
+                        templateUrl: 'partials/home.download-progressbar.html',
                         controller: 'DownloadCtrl'
                     },
                     createFolder: {
@@ -55,7 +59,6 @@
                 controller: 'AboutCtrl'
             })
             .state('error', {
-                url: '/error',
                 templateUrl: 'partials/error.html',
                 controller: 'ErrorCtrl'
             });
