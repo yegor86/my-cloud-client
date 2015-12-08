@@ -11,7 +11,7 @@
             rename: {name: 'rename', title: 'Rename'},
             copy: {name: 'copy', title: 'Copy...'},
             upload: {name: 'upload', title: 'Upload...'},
-            newFolder: {name: 'new-folder', title: 'New folder'}};
+            newFolder: {name: 'create-folder', title: 'New folder'}};
 
         return {
             marginBottom: 10,
