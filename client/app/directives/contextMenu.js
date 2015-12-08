@@ -8,7 +8,7 @@
 
         menu.isOpened = false;
 
-        menu.open = function open(event) {
+        menu.open = function (event) {
             this.isOpened = true;
             var doc = $document[0].documentElement,
                 docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
@@ -37,7 +37,7 @@
             this.menuHtmlElement.addClass('opened');
         };
 
-        menu.close = function close() {
+        menu.close = function () {
             if (this.isOpened === true) {
                 this.menuHtmlElement.removeClass('opened');
                 this.isOpened = false;
@@ -45,6 +45,19 @@
         };
 
         return {
+            restrict: "A",
+            controller: function ($scope) {
+                $scope.click = function (action) {
+                    switch (action.name) {
+                        case "upload":
+                            angular.element($document[0].getElementById('modal-upload')).scope().open();
+                            break;
+                        case "create-folder":
+                            angular.element($document[0].getElementById('modal-create-folder')).scope().open();
+                            break;
+                    }
+                };
+            },
             link: function ($scope, $element) {
                 menu.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
 
@@ -64,18 +77,6 @@
 
                     menu.open(event);
                 });
-
-                // Don't trigger the context menu on overlay
-                angular.element($document[0].getElementsByClassName('overlay'))
-                    .bind('contextmenu', function (event) {
-                        event.stopPropagation();
-                });
-
-                // Don't trigger the context menu on modal windows
-                angular.element($document[0].getElementsByClassName('modal'))
-                    .bind('contextmenu', function (event) {
-                        event.stopPropagation();
-                    });
 
                 // Trigger right click on the document
                 $document.bind('contextmenu', function (event) {
