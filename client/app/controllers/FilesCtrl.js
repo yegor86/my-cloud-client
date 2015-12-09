@@ -10,7 +10,6 @@
         }
 
         function successHandler(response) {
-            $scope.$parent.location = 'Home';
         }
 
         $scope.items = Files.query({path: $stateParams.path || ""}, successHandler, errorHandler);
