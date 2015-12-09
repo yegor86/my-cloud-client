@@ -1,3 +1,5 @@
+# MyCloudClient [![Build Status](https://travis-ci.org/yegor86/my-cloud-client.svg?branch=master)](https://travis-ci.org/yegor86/my-cloud-client)
+
 1. [Prerequisites for running the app locally](docs/Prerequisites.md)
 
 2. Run VM with notejs
