@@ -149,7 +149,7 @@ button:focus {
     font-weight: normal;
 }
 
-#browse-items {
+#browse-items, #browse-items-empty-folder {
     margin: 0px;
     padding: 149px 0px 0px;
 }
