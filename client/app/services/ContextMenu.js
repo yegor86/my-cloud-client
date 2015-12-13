@@ -18,7 +18,7 @@
             getContextMenuActions: function(type) {
                 if (type === 'file') {
                     return [actions.download, actions.open, actions.delete, actions.rename, actions.copy];
-                } else if (type == 'dir') {
+                } else if (type === 'dir') {
                     return [actions.open, actions.delete, actions.rename, actions.copy];
                 } else {
                     return [actions.upload, actions.newFolder];
