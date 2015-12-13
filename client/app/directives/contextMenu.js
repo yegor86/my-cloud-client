@@ -3,13 +3,16 @@
 
     var module = angular.module('myCloudDriveApp');
 
-    module.directive('contextMenu', function ($document, ContextMenu) {
+    module.directive('contextMenu', function ($document, ContextMenu, Download) {
         var menu = {};
 
         menu.isOpened = false;
+        menu.fileName = "";
 
-        menu.open = function open(event) {
+        menu.open = function (event) {
             this.isOpened = true;
+            menu.fileName = event.target.text;
+
             var doc = $document[0].documentElement,
                 docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
                 docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
@@ -37,7 +40,7 @@
             this.menuHtmlElement.addClass('opened');
         };
 
-        menu.close = function close() {
+        menu.close = function () {
             if (this.isOpened === true) {
                 this.menuHtmlElement.removeClass('opened');
                 this.isOpened = false;
@@ -45,6 +48,22 @@
         };
 
         return {
+            restrict: "A",
+            controller: function ($scope, $element) {
+                $scope.click = function (action) {
+                    switch (action.name) {
+                        case "upload":
+                            angular.element($document[0].getElementById('modal-upload')).scope().open();
+                            break;
+                        case "create-folder":
+                            angular.element($document[0].getElementById('modal-create-folder')).scope().open();
+                            break;
+                        case "download":
+                            Download.download(menu.fileName);
+                            break;
+                    }
+                };
+            },
             link: function ($scope, $element) {
                 menu.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
 
@@ -57,6 +76,8 @@
                     // Doesn't trigger $document 'contextmenu' event
                     event.stopPropagation();
 
+                    menu.fileName = event.target.name;
+
                     // Executes a function outside of the context menu controller
                     menu.scope.$apply(function () {
                         menu.scope.actions = ContextMenu.getContextMenuActions('file');
@@ -64,18 +85,6 @@
 
                     menu.open(event);
                 });
-
-                // Don't trigger the context menu on overlay
-                angular.element($document[0].getElementsByClassName('overlay'))
-                    .bind('contextmenu', function (event) {
-                        event.stopPropagation();
-                });
-
-                // Don't trigger the context menu on modal windows
-                angular.element($document[0].getElementsByClassName('modal'))
-                    .bind('contextmenu', function (event) {
-                        event.stopPropagation();
-                    });
 
                 // Trigger right click on the document
                 $document.bind('contextmenu', function (event) {

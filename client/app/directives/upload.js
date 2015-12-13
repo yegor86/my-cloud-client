@@ -5,6 +5,7 @@
 
     module.directive('upload', function ($document) {
         return {
+            restrict: "A",
             link: function ($scope, $element) {
                 var uploadInputHtmlElement = $('#upload-input');
 
@@ -14,17 +15,16 @@
 
                 uploadInputHtmlElement.bind('change', function (event) {
                     var file = event.target.files[0],
-                        uploadScope = angular.element($document[0].getElementById('modal-upload')).scope();
+                        modalUploadScope = angular.element($document[0].getElementById('modal-upload')).scope(),
+                        modalUploadProgressbarScope = angular.element($document[0].getElementById('modal-upload-progressbar')).scope();
 
-                    $scope.closeModalWindow(event);
+                    modalUploadScope.close(event);
 
-                    uploadScope.progressbarModalHtmlElement = angular.element($document[0].getElementById('modal-upload-progressbar'));
-                    uploadScope.progressbarModalOverlayHtmlElement = angular.element($document[0].getElementById('modal-overlay-progressbar'));
-                    uploadScope.progressbarModalHtmlElement.scope().fileName = file.name;
+                    modalUploadProgressbarScope.fileName = file.name;
 
-                    $scope.open(uploadScope.progressbarModalOverlayHtmlElement);
-                    $scope.open(uploadScope.progressbarModalHtmlElement);
+                    modalUploadProgressbarScope.open();
 
+                    $scope.modalUploadProgressbarScope = modalUploadProgressbarScope;
                     $scope.upload(file);
                 });
             }

@@ -41,12 +41,8 @@
                     },
                     uploadProgressbar: {
                         templateUrl: 'partials/home.upload-progressbar.html',
-                        controller: 'UploadCtrl'
+                        controller: 'UploadProgressbarCtrl'
                     }, 
-                    download: {
-                        templateUrl: 'partials/home.download-progressbar.html',
-                        controller: 'DownloadCtrl'
-                    },
                     createFolder: {
                         templateUrl: 'partials/home.create-folder.html',
                         controller: 'CreateFolderCtrl'

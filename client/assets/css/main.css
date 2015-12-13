@@ -144,7 +144,12 @@ button:focus {
     margin-bottom: 26px;
 }
 
-#browse-items {
+.header-text {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+#browse-items, #browse-items-empty-folder {
     margin: 0px;
     padding: 149px 0px 0px;
 }

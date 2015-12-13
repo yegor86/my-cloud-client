@@ -10,6 +10,9 @@
         }
 
         function successHandler(response) {
+            if (response.length === 0) {
+                $scope.isEmpty = true;
+            }
         }
 
         $scope.items = Files.query({path: $stateParams.path || ""}, successHandler, errorHandler);
@@ -24,7 +27,7 @@
                 $state.transitionTo(
                     $state.current,
                     {path: [$stateParams.path, item.name].join("/")},
-                    {reload: true});
+                    {reload: false});
             } 
         };
 

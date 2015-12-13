@@ -11,7 +11,9 @@
   <section id="context-menu-container" ui-view="contextMenu"></section>
   <div id="browse-box">
     <div id="browse-header">
-      <div id="browse-action-bar"></div>
+      <div id="browse-action-bar">
+        <div id="browse-location" class="header-text"></div>
+      </div>
       <div id="browse-sort">
         <a id="name-sorter" class="sortable-column-header" ng-click="sortType = 'name'; sortReverse = !sortReverse">
           <span>Name</span>
@@ -33,5 +35,4 @@
     <section ui-view="filesList"></section>
   </div>
 </div>
-<div id="modal-overlay" class="overlay closed" ng-click="clickOnOverlay()"></div>
-<div id="modal-overlay-progressbar" class="overlay closed"></div>
+<div id="modal-overlay" class="overlay closed"></div>

@@ -9,6 +9,7 @@
     require('./routes/files')(router);
     require('./routes/error')(router);
     require('./routes/upload')(router);
+    require('./routes/downloadRouter')(router);
     require('./routes/createFolder')(router);
 
     module.exports = router;

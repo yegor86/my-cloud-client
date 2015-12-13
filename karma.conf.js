@@ -1,9 +1,5 @@
-// Karma configuration
-// Generated on Tue Sep 15 2015 17:23:28 GMT+0300 (Финляндия (лето))
-
-module.exports = function(config) {
-  config.set({
-
+module.exports = function (config) {
+  var configuration = {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
@@ -16,16 +12,15 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'client/bower_components/angular/angular.js',
-      'client/bower_components/angular-route/angular-route.js',
+      'client/bower_components/angular-upload/angular-upload.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
-      'client/bower_components/angular-cookies/angular-cookies.js',
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/bower_components/angular-resource/angular-resource.js',
       'client/app/app.js',
       'client/app/**/*.js',
       'client/app/*',
       'client/partials/*.html',
-      'client/tests/unit/controllers/*Spec.js'
+      'client/tests/unit/controllers/*Test.js'
     ],
 
 
@@ -67,9 +62,22 @@ module.exports = function(config) {
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['Chrome'],
 
+    // configure a special browser for Travis
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false
-  })
-}
+  };
+
+  if (process.env.TRAVIS) {
+    configuration.browsers = ['Chrome_travis_ci'];
+  }
+
+  config.set(configuration);
+};
