@@ -28,14 +28,7 @@
                     $state.current,
                     {path: [$stateParams.path, item.name].join("/")},
                     {reload: false});
-            } 
-        };
-
-        $scope.rightClickOnItem = function (item) {
-            // var elem = angular.element($document[0].getElementById('modal-download'));
-            // elem.fileName = item.name;
-            // window.alert(item.name);
-            window.alert(item.name);
+            }
         };
     }
 

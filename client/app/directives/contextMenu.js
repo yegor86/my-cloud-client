@@ -49,7 +49,7 @@
 
         return {
             restrict: "A",
-            controller: function ($scope, $element) {
+            controller: function ($scope) {
                 $scope.click = function (action) {
                     switch (action.name) {
                         case "upload":
