@@ -3,7 +3,7 @@
 
 	var module = angular.module('myCloudDriveApp');
 
-	function Download($stateParams, $http) {
+	function Download($stateParams) {
 
         return {
             download: function(fileName) {
