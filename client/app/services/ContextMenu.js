@@ -13,13 +13,10 @@
             upload: {name: 'upload', title: 'Upload...'},
             newFolder: {name: 'create-folder', title: 'New folder'}};
         var marginBottom = 10;
-        var menu = {};
-        
+        var menu = {};        
         
         menu.open = function (event) {
             this.isOpened = true;
-            menu.fileName = event.target.text;
-            
             var doc = $document[0].documentElement,
                 docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
                 docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
@@ -54,6 +51,12 @@
             }
         };
 
+        menu.reset = function () {
+            this.isOpened = false;
+            this.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
+            this.scope = this.menuHtmlElement.scope();
+        };
+
         var getContextMenuActions = function(type) {
             if (type === 'document') {
                 return [actions.upload, actions.newFolder];
@@ -65,28 +68,14 @@
         };
 
         return {
-            reset: function() {
-                menu.isOpened = false;
-                menu.fileName = "";
-                menu.menuHtmlElement = angular.element($document[0].getElementById('context-menu'));
-                menu.scope = menu.menuHtmlElement.scope();
-            },
-            openMenuWithType: function(event, type) {
-                
-                if (type == 'document') {
-                    // Executes a function outside of the context menu controller
-                    menu.scope.$apply(function () {
-                        menu.scope.actions = getContextMenuActions(type);
-                        menu.open(event);
-                    });
-                } else {
-                    menu.scope.actions = getContextMenuActions(type);
-                    menu.open(event);
-                }
+            createMenu: function(type) {
+                menu.reset();
+                menu.scope.actions = getContextMenuActions(type);
+                return menu;
             },
             closeMenu: function() {
                 menu.close();
-            }        
+            }           
         };
     }
 

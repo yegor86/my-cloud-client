@@ -32,7 +32,9 @@
         };
 
         $scope.rightClickOnItem = function (item) {
-            ContextMenu.openMenuWithType(event, item.type);
+            var menu = ContextMenu.createMenu(item.type);
+            menu.scope.fileName = item.name;
+            menu.open(event);
         };
     }
 
