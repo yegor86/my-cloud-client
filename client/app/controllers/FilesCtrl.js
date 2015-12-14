@@ -3,7 +3,7 @@
 
     var module = angular.module('myCloudDriveApp');
 
-    function FilesCtrl($scope, $state, $stateParams, Files) {
+    function FilesCtrl($scope, $state, $stateParams, Files, ContextMenu) {
 
         function errorHandler(error) {
             $state.transitionTo('error');
@@ -29,6 +29,10 @@
                     {path: [$stateParams.path, item.name].join("/")},
                     {reload: false});
             }
+        };
+
+        $scope.rightClickOnItem = function (item) {
+            ContextMenu.openMenuWithType(event, item.type);
         };
     }
 
