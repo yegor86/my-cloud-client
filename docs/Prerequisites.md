@@ -10,6 +10,7 @@
     ```bash
          $ cd my-cloud-client/
          $ npm install
+         $ npm install -g gulp
     ```
 4. Run gulp default tasks to "compile" the code, that is, minify, run postcss and so on
 
