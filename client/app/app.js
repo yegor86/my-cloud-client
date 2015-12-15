@@ -42,7 +42,7 @@
                     uploadProgressbar: {
                         templateUrl: 'partials/home.upload-progressbar.html',
                         controller: 'UploadProgressbarCtrl'
-                    },
+                    }, 
                     createFolder: {
                         templateUrl: 'partials/home.create-folder.html',
                         controller: 'CreateFolderCtrl'
