@@ -7,6 +7,5 @@
 node_modules/
 client/bower_components/
 client/dist/
-client/index.html
 npm-debug.log
 *.sublime-workspace
