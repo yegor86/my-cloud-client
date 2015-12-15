@@ -3,13 +3,16 @@
 
     var module = angular.module('myCloudDriveApp');
 
-    module.directive('contextMenu', function ($document, ContextMenu) {
+    module.directive('contextMenu', function ($document, ContextMenu, Download) {
         var menu = {};
 
         menu.isOpened = false;
+        menu.fileName = "";
 
         menu.open = function (event) {
             this.isOpened = true;
+            menu.fileName = event.target.text;
+
             var doc = $document[0].documentElement,
                 docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
                 docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
@@ -55,6 +58,9 @@
                         case "create-folder":
                             angular.element($document[0].getElementById('modal-create-folder')).scope().open();
                             break;
+                        case "download":
+                            Download.download(menu.fileName);
+                            break;
                     }
                 };
             },
@@ -69,6 +75,8 @@
                     event.preventDefault();
                     // Doesn't trigger $document 'contextmenu' event
                     event.stopPropagation();
+
+                    menu.fileName = event.target.name;
 
                     // Executes a function outside of the context menu controller
                     menu.scope.$apply(function () {
