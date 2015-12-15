@@ -13,6 +13,8 @@
             if (response.length === 0) {
                 $scope.isEmpty = true;
             }
+
+            $scope.$parent.setBreadcrumbs("home" + $stateParams.path);
         }
 
         $scope.items = Files.query({path: $stateParams.path || ""}, successHandler, errorHandler);

@@ -144,6 +144,20 @@ button:focus {
     margin-bottom: 26px;
 }
 
+#browse-location {
+    width: 400px;
+}
+
+#browse-location .browse-breadcrumb {
+    background: resolve("web_sprites.png") no-repeat left -6367px;
+}
+
+#browse-location img {
+    width: 7px;
+    height: 11px;
+    margin: 0 3px;
+}
+
 .header-text {
     font-size: 18px;
     font-weight: normal;
@@ -299,7 +313,7 @@ ul.menu li:hover {
     background: resolve("web_sprites.png") no-repeat left -7842px;
 }
 
-#context-menu .sprite-context-menu-new-folder {
+#context-menu .sprite-context-menu-create-folder {
     background: resolve("web_sprites.png") no-repeat left -2166px;
 }
 

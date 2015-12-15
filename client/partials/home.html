@@ -11,7 +11,13 @@
   <div id="browse-box">
     <div id="browse-header">
       <div id="browse-action-bar">
-        <div id="browse-location" class="header-text"></div>
+        <div id="browse-location" class="header-text">
+          <span ng-repeat="folder in folders track by $index">
+            <a href="{{folder.path}}">{{folder.name}}</a>
+            <img class="browse-breadcrumb" ng-src="/assets/images/icon_spacer.gif" />
+          </span>
+          {{currentFolder}}
+        </div>
       </div>
       <div id="browse-sort">
         <a id="name-sorter" class="sortable-column-header" ng-click="sortType = 'name'; sortReverse = !sortReverse">
