@@ -28,7 +28,7 @@
     ```bash
          $ npm install -g nodemon
     ```
-6. Run a development version of the application
+6. Run a development version of the application(starting node.js server available on http://localhost:3000)
 
     ```bash
          $ npm start
