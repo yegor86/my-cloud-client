@@ -15,6 +15,7 @@
                             break;
                         case "create-folder":
                             angular.element($document[0].getElementById('modal-create-folder')).scope().open();
+                            $document[0].getElementById('folder-name').focus();
                             break;
                         case "download":
                             Download.download($scope.fileName);
