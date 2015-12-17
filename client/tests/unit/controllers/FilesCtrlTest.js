@@ -1,14 +1,14 @@
 describe('FilesCtrl', function () {
     "use strict";
 
-    var scope, ctrl, httpBackend, state, stateParams;
+    var scope, parentScope, ctrl, httpBackend, state, stateParams;
 
     beforeEach(module('myCloudDriveApp'));
     beforeEach(inject(function ($httpBackend, $rootScope, $controller, $templateCache) {
         httpBackend = $httpBackend;
         stateParams = {path: '/dir'};
 
-        httpBackend.expectGET('/files%2Fdir').respond([
+        httpBackend.expectGET('/files/list%2Fdir').respond([
                 {name: "some-image.jpg", type: "image"},
                 {name: "some-text.txt", type: "text"},
                 {name: "some-dir", type: "dir"}]);
@@ -20,7 +20,9 @@ describe('FilesCtrl', function () {
         $templateCache.put('partials/home.upload-progressbar.html', '');
         $templateCache.put('partials/home.create-folder.html', '');
 
-        scope = $rootScope.$new();
+        parentScope = $rootScope.$new();
+        $controller('HomeCtrl', {$scope: parentScope});
+        scope = parentScope.$new();
         ctrl = $controller('FilesCtrl', {$scope: scope, $stateParams: stateParams});
     }));
 
