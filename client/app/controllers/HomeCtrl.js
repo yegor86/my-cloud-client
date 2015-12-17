@@ -16,8 +16,6 @@
 
             paths = url.split('/');
 
-            $scope.currentFolder = paths.pop();
-
             for (var i = 0; i < paths.length; i++) {
                 folderPath = [folderPath, paths[i]].join("/");
                 folders.push({
@@ -26,6 +24,9 @@
                 });
             }
 
+            folders[0].name = 'MyCloudDrive';
+
+            $scope.currentFolder = folders.pop();
             $scope.folders = folders;
         };
 
