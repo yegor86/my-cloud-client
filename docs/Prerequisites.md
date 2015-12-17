@@ -10,6 +10,7 @@
     ```bash
          $ cd my-cloud-client/
          $ npm install
+         $ npm install -g gulp
     ```
 4. Run gulp default tasks to "compile" the code, that is, minify, run postcss and so on
 
@@ -28,7 +29,7 @@
     ```bash
          $ npm install -g nodemon
     ```
-6. Run a development version of the application
+6. Run a development version of the application(starting node.js server available on http://localhost:3000)
 
     ```bash
          $ npm start
