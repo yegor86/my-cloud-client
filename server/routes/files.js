@@ -12,7 +12,7 @@
         }
 
         router.get('/files/list(\/?[a-zA-Z0-9_-]?)*', function (clientRequest, clientResponse) {
-            
+
             var options = {
                     host: server.host,
                     path: cleanUrl(clientRequest.url).replace('/files/list', '/files/list/admin@mail.com'),

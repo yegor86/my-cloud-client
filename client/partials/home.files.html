@@ -1,11 +1,11 @@
 <ol id="browse-items" ng-if="items.length">
-	<li class="browse-item" ng-dblclick="clickOnItem(item)" ng-repeat="item in items | orderBy:sortType:sortReverse">
+	<li class="browse-item" ng-dblclick="clickOnItem(item)" ng-repeat="item in items | orderBy:sortType:sortReverse | orderBy:'folder':sortReverse">
 		<div class="name" ng-right-click="rightClickOnItem(item)">
 			<img class="icon sprite-{{::item.type}}" ng-click="clickOnItem(item)" ng-src="/assets/images/icon_spacer.gif"/>
 			<a class="name-link" href="#" ng-click="clickOnItem(item)">{{::item.name}}</a>
 		</div>
 		<div class="modified">
-			{{::item.updated ? item.updated : "--" | date: 'dd/MM/yyyy HH:mm a' :timezone}}
+			{{::item.folder ? "--" : (item.updated ? item.updated : "--") | date:'dd/MM/yyyy HH:mm a':timezone}}
 		</div>
 		<div class="shared">--</div>
 		<br class="clear" />
