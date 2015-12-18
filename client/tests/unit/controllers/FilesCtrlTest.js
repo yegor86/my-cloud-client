@@ -21,6 +21,7 @@ describe('FilesCtrl', function () {
         $templateCache.put('partials/home.create-folder.html', '');
 
         parentScope = $rootScope.$new();
+        parentScope.setBreadcrumbs = function () {};
         $controller('HomeCtrl', {$scope: parentScope});
         scope = parentScope.$new();
         ctrl = $controller('FilesCtrl', {$scope: scope, $stateParams: stateParams});
