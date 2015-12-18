@@ -1,5 +1,5 @@
 <ol id="browse-items" ng-if="items.length">
-	<li class="browse-item" ng-dblclick="clickOnItem(item)" ng-repeat="item in items | orderBy:sortType:sortReverse | orderBy:'folder':sortReverse" context-menu item-type="{{::item.type}}">
+	<li class="browse-item" ng-dblclick="clickOnItem(item)" ng-repeat="item in items | orderBy:sortType:sortReverse | orderBy:'folder':sortReverse" context-menu item-type="{{::item.type}}" item-name="{{::item.name}}">
 		<div class="name">
 			<img class="icon sprite-{{::item.type}}" ng-click="clickOnItem(item)" ng-src="/assets/images/icon_spacer.gif"/>
 			<a class="name-link" href="#" ng-click="clickOnItem(item)">{{::item.name}}</a>

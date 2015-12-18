@@ -5,6 +5,8 @@
 
     module.directive('contextMenu', function ($document, ContextMenu, Download) {
 
+        var contextMenuContainerScope = angular.element($document[0].getElementById('context-menu-container')).scope();
+
         // Trigger right click on the document
         $document.bind('contextmenu', function (event) {
             // Prevent a default context menu
@@ -23,9 +25,12 @@
 
         return {
             restrict: "A",
-            scope: {itemType: '@'},
+            scope: {
+                itemType: '@itemType',
+                itemName: '@itemName'
+            },
             controller: function ($scope) {
-                $scope.click = function (action) {
+                contextMenuContainerScope.click = function (action) {
                     switch (action.name) {
                         case "upload":
                             angular.element($document[0].getElementById('modal-upload')).scope().open();
@@ -35,7 +40,7 @@
                             $document[0].getElementById('folder-name').focus();
                             break;
                         case "download":
-                            Download.download($scope.fileName);
+                            Download.download(contextMenuContainerScope.itemName);
                             break;
                     }
                 };
@@ -54,6 +59,8 @@
                     menu.scope.$apply(function () {
                         menu.open(event);
                     });
+
+                    contextMenuContainerScope.itemName = $scope.itemName;
                 });
             }   
         };
