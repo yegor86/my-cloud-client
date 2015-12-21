@@ -33,7 +33,7 @@
             }
         };
 
-        $scope.rightClickOnItem = function (item) {
+        $scope.rightClickOnItem = function (event, item) {
             var menu = ContextMenu.createMenu(item.type);
             menu.scope.fileName = item.name;
             menu.open(event);
