@@ -16,7 +16,10 @@
                 uploadInputHtmlElement.bind('change', function (event) {
                     var file = event.target.files[0],
                         modalUploadScope = angular.element($document[0].getElementById('modal-upload')).scope(),
-                        modalUploadProgressbarScope = angular.element($document[0].getElementById('modal-upload-progressbar')).scope();
+                        modalUploadProgressbarScope =
+                            angular
+                                .element($document[0].getElementById('modal-upload-progressbar'))
+                                .scope();
 
                     modalUploadScope.close(event);
 
