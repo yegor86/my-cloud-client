@@ -32,8 +32,9 @@
                         controller: 'FilesCtrl'
                     },
                     contextMenu: {
-                        templateUrl: 'partials/home.context-menu.html',
-                        controller: 'ContextMenuCtrl'
+                        templateUrl: 'app/context_menu/home.context-menu.html',
+                        controller: 'ContextMenuController',
+                        controllerAs: 'vm'
                     },
                     upload: {
                         templateUrl: 'partials/home.upload.html',
