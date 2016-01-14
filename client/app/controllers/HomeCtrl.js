@@ -8,6 +8,8 @@
         $scope.sortType = 'name';
 
         $scope.sortReverse = true;
+
+        $scope.userEmail = 'admin@mail.com';
     }
 
     module.controller('HomeCtrl', HomeCtrl);

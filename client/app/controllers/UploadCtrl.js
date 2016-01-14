@@ -16,7 +16,7 @@
 
             Upload.send({
                 filePath: [path, file.name].join('/'),
-                email: 'admin@mail.com',
+                email: $scope.userEmail,
                 file: file
             }).then(successHandler);
         };

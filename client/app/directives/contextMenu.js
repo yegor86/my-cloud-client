@@ -18,7 +18,7 @@
                             $document[0].getElementById('folder-name').focus();
                             break;
                         case "download":
-                            Download.download($scope.fileName);
+                            Download.download($scope.userEmail, $scope.fileName);
                             break;
                     }
                 };
