@@ -15,7 +15,7 @@
             return [];
         }
 
-        return $resource('/files/list:path', {}, {
+        return $resource('/files/list/:email:path', {}, {
             query: {
                 method: 'GET',
                 params: {path: ''},

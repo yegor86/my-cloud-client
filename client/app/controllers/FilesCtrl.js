@@ -17,7 +17,7 @@
             $scope.$parent.setBreadcrumbs("home" + $stateParams.path);
         }
 
-        $scope.items = Files.query({path: $stateParams.path || ""}, successHandler, errorHandler);
+        $scope.items = Files.query({email: $scope.userEmail, path: $stateParams.path || ""}, successHandler, errorHandler);
 
         $scope.clickOnItem = function (item) {
             if (item.folder === true) {

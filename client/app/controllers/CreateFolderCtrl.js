@@ -16,7 +16,7 @@
 
             CreateFolder.send({
                 path: [path, $scope.folderName].join('/'),
-                email: "admin@mail.com"
+                email: $scope.userEmail
             }).then(successHandler);
 
             $scope.close(event);

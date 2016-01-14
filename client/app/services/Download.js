@@ -6,8 +6,9 @@
 	function Download($window, $stateParams) {
 
         return {
-            download: function(fileName) {
-                var path = '/files/download' + $stateParams.path + '/' + fileName;
+            download: function(userEmail, fileName) {
+                console.log(userEmail);
+                var path = '/files/download/' + userEmail + $stateParams.path + '/' + fileName;
                 $window.open(path, '_self');
             }
         };
