@@ -1,9 +1,13 @@
 (function (angular) {
-    "use strict";
+    'use strict';
 
-    var module = angular.module('myCloudDriveApp');
+    angular
+        .module('myCloudDriveApp')
+        .controller('UploadController', UploadController);
 
-    function UploadCtrl($state, $stateParams, $scope, Upload) {
+    function UploadController($state, $stateParams, $scope, Upload) {
+        var vm = this;
+        vm.upload = upload;
 
         function successHandler(response) {
             $state.reload($state.current);
@@ -11,7 +15,7 @@
             $scope.modalUploadProgressbarScope.close();
         }
 
-        $scope.upload = function (file) {
+        function upload(file) {
             var path = $stateParams.path;
 
             Upload.send({
@@ -19,8 +23,6 @@
                 email: 'admin@mail.com',
                 file: file
             }).then(successHandler);
-        };
+        }
     }
-
-    module.controller('UploadCtrl', UploadCtrl);
 }(angular));

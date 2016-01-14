@@ -37,12 +37,14 @@
                         controllerAs: 'vm'
                     },
                     upload: {
-                        templateUrl: 'partials/home.upload.html',
-                        controller: 'UploadCtrl'
+                        templateUrl: 'app/upload/upload.html',
+                        controller: 'UploadController',
+                        controllerAs: 'vm'
                     },
                     uploadProgressbar: {
-                        templateUrl: 'partials/home.upload-progressbar.html',
-                        controller: 'UploadProgressbarCtrl'
+                        templateUrl: 'app/upload/upload-progressbar.html',
+                        controller: 'UploadProgressbarController',
+                        controllerAs: 'vm'
                     }, 
                     createFolder: {
                         templateUrl: 'partials/home.create-folder.html',
