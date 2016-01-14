@@ -32,7 +32,7 @@
                         controller: 'FilesCtrl'
                     },
                     contextMenu: {
-                        templateUrl: 'app/context_menu/home.context-menu.html',
+                        templateUrl: 'app/context_menu/context-menu.html',
                         controller: 'ContextMenuController',
                         controllerAs: 'vm'
                     },
