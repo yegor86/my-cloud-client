@@ -8,7 +8,7 @@ describe('FilesCtrl', function () {
         httpBackend = $httpBackend;
         stateParams = {path: '/dir'};
 
-        httpBackend.expectGET('/files/list%2Fdir').respond([
+        httpBackend.expectGET('/files/list/admin@mail.com%2Fdir').respond([
                 {name: "some-image.jpg", type: "image"},
                 {name: "some-text.txt", type: "text"},
                 {name: "some-dir", type: "dir"}]);
