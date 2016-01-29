@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
@@ -6,22 +6,17 @@ var gulp = require('gulp'),
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-gulp.task('default', function() {
+gulp.task('default', function () {
+});
+
+gulp.task('install', function () {
     gulp.start('hint');
     gulp.start('postcss');
     gulp.start('compress');
     gulp.start('inject');
 });
 
-gulp.task('hint', function() {
-    return gulp.src(['./server/app.js',
-        './server/routes/*.js',
-        './server/bin/www',
-        './client/app/**/*.js',
-        './tasks/*.js'])
-        .pipe(jshint())
-        .pipe(jshint.reporter('default', { verbose: true }));
-});
+gulp.task('hint', require('./tasks/hint'));
 
 gulp.task('inject', require('./tasks/inject'));
 
@@ -32,10 +27,3 @@ gulp.task('e2e', require('./tasks/e2e'));
 gulp.task('compress', require('./tasks/minify'));
 
 gulp.task('postcss', require('./tasks/postcss'));
-
-gulp.task('install', function() {
-    gulp.src(['./bower.json', './package.json'])
-        .pipe(install());
-
-    gulp.start('default');
-});

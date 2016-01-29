@@ -14,11 +14,11 @@ describe('FilesCtrl', function () {
                 {name: "some-dir", type: "dir"}]);
 
         $templateCache.put('partials/home.html', '');
-        $templateCache.put('partials/home.files.html', '');
+        $templateCache.put('partials/files.html', '');
         $templateCache.put('partials/home.context-menu.html', '');
         $templateCache.put('partials/home.upload.html', '');
         $templateCache.put('partials/home.upload-progressbar.html', '');
-        $templateCache.put('partials/home.create-folder.html', '');
+        $templateCache.put('partials/create-folder.html', '');
 
         parentScope = $rootScope.$new();
         parentScope.setBreadcrumbs = function () {};

@@ -149,10 +149,6 @@ button:focus {
     width: 400px;
 }
 
-#browse-location .browse-breadcrumb {
-    background: resolve("web_sprites.png") no-repeat left -6367px;
-}
-
 #browse-location img {
     width: 7px;
     height: 11px;
@@ -233,45 +229,6 @@ button:focus {
     background: resolve("web_sprites.png") no-repeat left -1872px;
 }
 
-#context-menu-container ul {
-    margin: 0px;
-    padding: 4px 0;
-    list-style: none;
-    min-width: 160px;
-    white-space: nowrap;
-}
-
-#context-menu {
-    position: fixed;
-    z-index: 501;
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
-    border: 1px solid rgba(61,70,77,0.1);
-    border-radius: 5px;
-    background: #fff;
-    background-clip: padding-box;
-}
-
-#context-menu li.action {
-    height: 34px;
-    position: relative;
-}
-
-#context-menu button {
-    min-width: 160px;
-    height: 100%;
-    padding: 8px 8px;
-    margin: 0;
-    text-align: left;
-    vertical-align: middle;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-#context-menu button div {
-    cursor: pointer;
-}
-
 ul.menu div.icon-frame {
     width: 19px;
     height: 19px;
@@ -288,39 +245,6 @@ ul.menu div.icon-frame img {
 
 ul.menu li:hover {
     background-color: #e3f2ff;
-}
-
-#context-menu .sprite-context-menu-download {
-    background: resolve("web_sprites.png") no-repeat left -6462px;
-}
-
-#context-menu .sprite-context-menu-open {
-    background: resolve("web_sprites.png") no-repeat left -7093px;
-}
-
-#context-menu .sprite-context-menu-delete {
-    background: resolve("web_sprites.png") no-repeat left -6442px;
-}
-
-#context-menu .sprite-context-menu-rename {
-    background: resolve("web_sprites.png") no-repeat left -7172px;
-}
-
-#context-menu .sprite-context-menu-copy {
-    background: resolve("web_sprites.png") no-repeat left -6381px;
-}
-
-#context-menu .sprite-context-menu-upload {
-    background: resolve("web_sprites.png") no-repeat left -7842px;
-}
-
-#context-menu .sprite-context-menu-create-folder {
-    background: resolve("web_sprites.png") no-repeat left -2166px;
-}
-
-#context-menu .icon {
-    width: 19px;
-    height: 19px;
 }
 
 .closed {

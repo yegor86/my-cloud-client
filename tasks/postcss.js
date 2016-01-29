@@ -5,7 +5,8 @@
         postcss = require('gulp-postcss'),
         autoprefixer = require('autoprefixer'),
         assets  = require('postcss-assets'),
-        cssnano = require('cssnano');
+        cssnano = require('cssnano'),
+        concatCss = require('gulp-concat-css');
 
     module.exports = function() {
         var processors = [
@@ -17,7 +18,8 @@
             }),
             cssnano()
         ];
-        return gulp.src('./client/assets/css/*.css')
+        return gulp.src(['./client/assets/css/*.css', './client/app/**/*.css'])
+            .pipe(concatCss('all.css'))
             .pipe(postcss(processors))
             .pipe(gulp.dest('./client/dist'));
     };

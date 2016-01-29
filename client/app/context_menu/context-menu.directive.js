@@ -2,54 +2,57 @@
     'use strict';
 
     angular
-        .module('myCloudDriveApp')
+        .module('app.context-menu')
         .directive('mccContextMenu', contextMenu);
 
     /* @ngInject */
     function contextMenu($document, contextMenuService) {
-
         return {
             link: link,
+            templateUrl: 'app/context_menu/context-menu.html',
             controller: ContextMenuController,
-            controllerAs: 'vm',
+            controllerAs: 'contextMenu',
             restrict: 'A'
         };
 
         function link() {
+            var menu;
+
             // Trigger right click on the document
             $document.bind('contextmenu', function (event) {
                 // Prevent a default context menu
                 event.preventDefault();
 
-                contextMenuService.createMenu('document');
+                menu = contextMenuService.createMenu('document');
                 // Executes a function outside of the context menu controller
-                contextMenuService.getScope().$apply(function () {
-                    contextMenuService.openMenu(event);
+                menu.scope.$apply(function () {
+                    menu.open(event);
                 });
             });
 
             $document.bind('click', function (event) {
-                contextMenuService.closeMenu();
+                if (menu !== undefined) {
+                    menu.close(event);
+                }
             });
         }
     }
 
     /* @ngInject */
-    function ContextMenuController($document, $scope, Download) {
+    function ContextMenuController($scope, downloadService) {
         var vm = this;
         vm.click = click;
 
         function click(action) {
             switch (action.name) {
                 case "upload":
-                    angular.element($document[0].getElementById('modal-upload')).scope().open();
+                    $scope.$emit('upload');
                     break;
                 case "create-folder":
-                    angular.element($document[0].getElementById('modal-create-folder')).scope().open();
-                    $document[0].getElementById('folder-name').focus();
+                    $scope.$emit('createFolder');
                     break;
                 case "download":
-                    Download.download($scope.fileName);
+                    downloadService.download($scope.fileName);
                     break;
             }
         }

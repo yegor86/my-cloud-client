@@ -1,13 +1,13 @@
-<modal-window id="modal-upload" class="modal closed">
+<div class="modal">
   <h2 class="modal-title">Upload to My Cloud Drive</h2>
   <section class="modal-content">
     <span>Choose files to upload to your Cloud Drive. You can select more than one file at a time. You can also drag and drop files anywhere on this page to start uploading.</span>
     <section id="upload-buttons">
-      <input type="button" id="upload-choose-button" value="Choose a file" class="blue-button" mcc-upload />
-      <input type="button" id="cancel-button" value="Cancel" class="grey-button" ng-click="close($event)" />
+      <input type="button" id="upload-choose-button" value="Choose a file" class="blue-button" ng-click="upload.chooseFile($event)" />
+      <input type="button" id="cancel-button" value="Cancel" class="grey-button" ng-click="upload.close($event)" />
     </section>
   </section>
   <section id="upload-input-container">
     <input type="file" id="upload-input" />
   </section>
-</modal-window>
+</div>
