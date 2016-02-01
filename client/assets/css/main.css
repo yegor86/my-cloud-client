@@ -145,10 +145,6 @@ button:focus {
     margin-bottom: 26px;
 }
 
-#browse-location {
-    width: 400px;
-}
-
 #browse-location img {
     width: 7px;
     height: 11px;
