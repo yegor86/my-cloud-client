@@ -5,6 +5,7 @@
         .module('app.files')
         .factory('filesService', filesService);
 
+    /* @ngInject */
     function filesService($resource) {
 
         function transformResponse(response) {
