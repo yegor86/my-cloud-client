@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
+    "browserify": "^13.0.0",
     "chromedriver": "~2.9.*",
     "cssnano": "^3.3.1",
     "gulp": "^3.9.0",
@@ -42,6 +43,7 @@
     "main-bower-files": "~2.9.*",
     "postcss-assets": "^3.0.2",
     "protractor": "^1.8.*",
+    "vinyl-source-stream": "^1.1.0",
     "yargs": "^3.30.0"
   }
 }
