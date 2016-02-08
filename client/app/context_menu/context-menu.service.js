@@ -48,6 +48,13 @@
             windowOpener.open(this.element);
         };
 
+        menu.isOpened = function () {
+            if (this.element === undefined) {
+                return false;
+            }
+            return windowOpener.isOpened(this.element);
+        };
+
         menu.reset = function () {
             this.element = angular.element($document[0].getElementById('context-menu'));
             this.scope = this.element.scope();
@@ -61,7 +68,7 @@
 
         return {
             createMenu: createMenu,
-            getActions: getActions
+            getMenu: getMenu
         };
 
         function createMenu(type) {
@@ -78,6 +85,10 @@
             } else {
                 return [actions.download, actions.open, actions.delete, actions.rename, actions.copy];
             }
+        }
+
+        function getMenu() {
+            return menu;
         }
     }
 }(angular));

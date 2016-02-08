@@ -16,14 +16,12 @@
         };
 
         function link() {
-            var menu;
-
             // Trigger right click on the document
             $document.bind('contextmenu', function (event) {
                 // Prevent a default context menu
                 event.preventDefault();
 
-                menu = contextMenuService.createMenu('document');
+                var menu = contextMenuService.createMenu('document');
                 // Executes a function outside of the context menu controller
                 menu.scope.$apply(function () {
                     menu.open(event);
@@ -31,7 +29,8 @@
             });
 
             $document.bind('click', function (event) {
-                if (menu !== undefined) {
+                var menu = contextMenuService.getMenu();
+                if (menu.isOpened() === true) {
                     menu.close(event);
                 }
             });
