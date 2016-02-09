@@ -1,8 +1,6 @@
 'use strict';
 
-var gulp = require('gulp'),
-    jshint = require('gulp-jshint'),
-    install = require("gulp-install");
+var gulp = require('gulp');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
