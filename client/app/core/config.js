@@ -19,6 +19,6 @@
     }
 
     function valToString(val) {
-        return val !== null ? val.toString() : val;
+        return (val !== null && val !== undefined) ? val.toString() : val;
     }
 }(angular));
