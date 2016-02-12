@@ -25,6 +25,7 @@ module.exports = function (config) {
 
     // list of files to exclude
     exclude: [
+      'client/app/**/*.e2e.js'
     ],
 
 
