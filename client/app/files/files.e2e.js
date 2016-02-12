@@ -1,19 +1,11 @@
-'use strict';
+describe('files', function () {
+    'use strict';
 
-describe('myCloudDriveApp', function() {
-
-    beforeEach(function() {
+    beforeEach(function () {
         browser.get('http://localhost:3000/');
     });
 
-    it('should be a home link', function() {
-        var link = element(by.css('a'));
-        link.click();
-
-        expect(link.getText()).toBe('home');
-    });
-
-    it('should open a dir and then return back', function() {
+    it('should open a dir and then return back', function () {
         var dirCssClass = '.sprite-dir',
             dirElement = element(by.css(dirCssClass));
 
