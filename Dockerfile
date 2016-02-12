@@ -11,7 +11,7 @@ WORKDIR /usr/src/app
 RUN npm install socket.io
 RUN npm install --ignore-scripts
 RUN bower install --allow-root
-RUN gulp default
+RUN gulp install
 
 CMD [ "npm", "run", "pm2" ]
 
