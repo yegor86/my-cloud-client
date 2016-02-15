@@ -4,12 +4,11 @@
     var gulp = require('gulp'),
         inject = require('gulp-inject'),
         angularFilesort = require('gulp-angular-filesort'),
-        bowerFiles = require('main-bower-files'),
-        argv = require('yargs').argv;
+        bowerFiles = require('main-bower-files');
 
     module.exports = function () {
         var target = gulp.src('./client/index.html');
-        var sources = gulp.src([argv.dev === true ? './client/app/**/*.js' : './client/dist/*.js'])
+        var sources = gulp.src(['./client/app/**/*.js'])
             .pipe(angularFilesort());
 
         return target.pipe(inject(sources, {ignorePath: 'client/'}))
