@@ -9,7 +9,7 @@
     function upload($document) {
         return {
             require: 'mccModalWindow',
-            templateUrl: 'app/upload/upload.html',
+            templateUrl: 'app/components/upload/upload.html',
             controller: UploadController,
             controllerAs: 'upload',
             restrict: 'A',

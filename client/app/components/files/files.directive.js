@@ -8,7 +8,7 @@
     /* @ngInject */
     function files() {
         return {
-            templateUrl: 'app/files/files.html',
+            templateUrl: 'app/components/files/files.html',
             controller: 'FilesController',
             controllerAs: 'files',
             restrict: 'A'

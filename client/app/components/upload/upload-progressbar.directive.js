@@ -9,7 +9,7 @@
     function uploadProgressbar() {
         return {
             require: 'mccModalWindow',
-            templateUrl: 'app/upload/upload-progressbar.html',
+            templateUrl: 'app/components/upload/upload-progressbar.html',
             controller: UploadProgressbarController,
             controllerAs: 'uploadProgressbar',
             restrict: 'A',

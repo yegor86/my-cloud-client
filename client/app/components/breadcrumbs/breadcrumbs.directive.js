@@ -8,7 +8,7 @@
     /* @ngInject */
     function breadcrumbs() {
         return {
-            templateUrl: "app/breadcrumbs/breadcrumbs.html",
+            templateUrl: "app/components/breadcrumbs/breadcrumbs.html",
             controller: BreadcrumbsController,
             controllerAs: 'breadcrumbs',
             restrict: 'E'

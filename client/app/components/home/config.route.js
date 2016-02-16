@@ -10,7 +10,7 @@
         $stateProvider
             .state('home', {
                 url: '/home{path:nonURIEncoded}',
-                templateUrl: 'app/home/home.html',
+                templateUrl: 'app/components/home/home.html',
                 controller: 'HomeController',
                 controllerAs: 'vm'
             });

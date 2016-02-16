@@ -9,7 +9,7 @@
     function contextMenu($document, contextMenuService) {
         return {
             link: link,
-            templateUrl: 'app/context_menu/context-menu.html',
+            templateUrl: 'app/components/context_menu/context-menu.html',
             controller: ContextMenuController,
             controllerAs: 'contextMenu',
             restrict: 'A'

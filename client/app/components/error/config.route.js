@@ -9,7 +9,7 @@
     function configure($stateProvider) {
         $stateProvider
             .state('error', {
-                templateUrl: 'app/error/error.html',
+                templateUrl: 'app/components/error/error.html',
                 controller: 'ErrorController',
                 controllerAs: 'vm'
             });

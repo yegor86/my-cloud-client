@@ -9,7 +9,7 @@
     function createFolder($document) {
         return {
             require: 'mccModalWindow',
-            templateUrl: 'app/create_folder/create-folder.html',
+            templateUrl: 'app/components/create_folder/create-folder.html',
             controller: CreateFolderController,
             controllerAs: 'createFolder',
             restrict: 'A',
