@@ -8,7 +8,7 @@
 
     module.exports = function () {
         var target = gulp.src('./client/index.html');
-        var sources = gulp.src(['./client/app/**/*.js'])
+        var sources = gulp.src(['./client/app/**/*.js', '!./client/app/**/*spec.js', '!./client/app/**/*e2e.js'])
             .pipe(angularFilesort());
 
         return target.pipe(inject(sources, {ignorePath: 'client/'}))
