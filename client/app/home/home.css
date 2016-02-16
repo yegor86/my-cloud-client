@@ -1,0 +1,144 @@
+body {
+    background-color: #fff;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+a {
+    outline: medium none;
+    cursor: pointer;
+    text-decoration: none;
+    color: #2895F1;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body, input, textarea, select, button, .normal {
+    font-family: "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
+    font-size: 13px;
+    color: #3D464D;
+    font-weight: normal;
+}
+
+button:focus {
+    outline:0;
+}
+
+.clear {
+    clear: both;
+}
+
+.noselect {
+    user-select: none;
+}
+
+#container {
+    width: 990px;
+    margin: 0 auto;
+}
+
+#sidebar {
+    position: fixed;
+    width: 180px;
+    top: 50px;
+    z-index: 6;
+}
+
+#main-nav {
+    margin-top: 27px;
+}
+
+#main-nav li {
+    list-style: none;
+}
+
+#main-nav a:hover {
+    text-decoration: none;
+}
+
+.header-text {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+ul.menu div.icon-frame {
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 2px;
+}
+
+ul.menu div.icon-frame img {
+    display: block;
+    margin: auto;
+    padding-right: 3px;
+}
+
+ul.menu li:hover {
+    background-color: #e3f2ff;
+}
+
+.closed {
+    visibility: hidden;
+}
+
+.opened {
+    visibility: visible;
+}
+
+#upload-buttons, #create-folder-buttons {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.blue-button {
+    background: #007ee5 linear-gradient(#168add, #007ee5);
+    border: 1px solid #0c6ebe;
+    color: white;
+}
+
+.blue-button:disabled {
+    opacity: .4;
+    cursor: default;
+}
+
+.grey-button {
+    background: #fff;
+    border: 1px solid #bbb;
+    color: #47525d;
+}
+
+.blue-button, .grey-button {
+    display: inline-block;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: visible;
+    text-decoration: none;
+    padding: 5px 16px;
+    margin-left: 10px;
+    border-radius: 3px
+}
+
+.text-input {
+    border: 1px solid #bdc4c9;
+    font-size: 16px;
+    padding: 5px 6px;
+    width: 100%;
+    margin: 2px 0 5px;
+    min-height: 34px;
+    line-height: normal;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-appearance: none;
+}
+
+#create-folder-errors {
+    min-height: 17px;
+}

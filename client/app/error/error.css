@@ -1,0 +1,17 @@
+#error-box {
+    line-height: 1.6em;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0 20px;
+    text-align: left;
+    color: #444;
+    font-size: 16px;
+    width: 100%;
+}
+
+#error-box h1 {
+    color: #222;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin: 10px 0;
+}
