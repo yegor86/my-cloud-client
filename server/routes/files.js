@@ -15,7 +15,7 @@
 
             var options = {
                     host: server.host,
-                    path: cleanUrl(clientRequest.url).replace('/files/list', '/files/list/admin@mail.com'),
+                    path: cleanUrl(clientRequest.url),
                     port: server.port,
                     method: 'GET'};
 

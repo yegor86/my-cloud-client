@@ -8,8 +8,8 @@
     /* @ngInject */
 	function downloadService($window, $stateParams) {
         return {
-            download: function(fileName) {
-                var path = '/files/download' + $stateParams.path + '/' + fileName;
+            download: function(userEmail, fileName) {
+                var path = '/files/download/' + userEmail + $stateParams.path + '/' + fileName;
                 $window.open(path, '_self');
             }
         };

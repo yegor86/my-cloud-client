@@ -51,7 +51,7 @@
                     $scope.$emit('createFolder');
                     break;
                 case "download":
-                    downloadService.download($scope.fileName);
+                    downloadService.download('admin@mail.com', $scope.fileName);
                     break;
             }
         }
