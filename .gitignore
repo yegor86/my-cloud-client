@@ -2,7 +2,6 @@
 .project
 .settings/
 .vagrant
-.jshintrc
 .npmignore
 node_modules/
 client/bower_components/

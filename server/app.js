@@ -1,8 +1,7 @@
-(function(module){
-    "use strict";
+(function (module) {
+    'use strict';
 
     var express = require('express');
-    var path = require('path');
     var logger = require('morgan');
     var cookieParser = require('cookie-parser');
     var bodyParser = require('body-parser');
@@ -16,12 +15,10 @@
 
     if (app.get('env') === 'development') {
         // This will change in production since we'll use the dist folder
-        app.use(express.static(path.join(__dirname, '../client')));
-        // This covers serving up the index page
-        app.use(express.static(path.join(__dirname, '../client/app')));
+        app.use(express.static('./client'));
 
         // Error Handling
-        app.use(function(err, req, res, next) {
+        app.use(function (err, req, res, next) {
             res.status(err.status || 500);
             res.render('error', {
                 message: err.message,
@@ -32,11 +29,11 @@
 
     if (app.get('env') === 'production') {
         // changes it to use the optimized version for production
-        app.use(express.static(path.join(__dirname, '/dist')));
+        app.use(express.static('./dist'));
 
         // production error handler
         // no stacktraces leaked to user
-        app.use(function(err, req, res, next) {
+        app.use(function (err, req, res, next) {
             res.status(err.status || 500);
             res.render('error', {
                 message: err.message,
@@ -45,9 +42,9 @@
         });
     }
 
-    var router = require('./routes');
+    var routes = require('./routes');
 
-    app.use('/', router);
+    app.use('/', routes);
 
     module.exports = app;
 }(module));

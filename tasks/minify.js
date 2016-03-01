@@ -8,7 +8,7 @@
 
     module.exports = function() {
         var sources = gulp.src([
-            './client/app/app.js',
+            './client/app/app.module.js',
             './client/app/**/*.js']);
 
         return sources.pipe(concat('all.js'))

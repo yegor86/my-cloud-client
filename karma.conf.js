@@ -16,16 +16,16 @@ module.exports = function (config) {
       'client/bower_components/angular-mocks/angular-mocks.js',
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/bower_components/angular-resource/angular-resource.js',
-      'client/app/app.js',
+      'client/app/app.module.js',
+      'client/app/**/*.module.js',
       'client/app/**/*.js',
-      'client/app/*',
-      'client/partials/*.html',
-      'client/tests/unit/controllers/*Test.js'
+      'client/app/**/*.spec.js'
     ],
 
 
     // list of files to exclude
     exclude: [
+      'client/app/**/*.e2e.js'
     ],
 
 

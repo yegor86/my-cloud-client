@@ -1,0 +1,16 @@
+<ol id="browse-items" ng-if="files.items.length">
+	<li class="browse-item" ng-dblclick="files.clickOnItem(item)" ng-repeat="item in files.items | orderBy:sortType:sortReverse | orderBy:'folder':sortReverse" mcc-right-click="files.rightClickOnItem($event, item)">
+		<div class="name">
+			<img class="icon sprite-{{::item.type}}" ng-click="files.clickOnItem(item)" ng-src="/assets/images/icon_spacer.gif"/>
+			<a class="name-link" href="#" ng-click="files.clickOnItem(item)">{{::item.name}}</a>
+		</div>
+		<div class="modified">
+			{{::item.folder ? "--" : (item.updated ? item.updated : "--") | date:'dd/MM/yyyy HH:mm a':timezone}}
+		</div>
+		<div class="shared">--</div>
+		<br class="clear" />
+	</li>
+</ol>
+<div id="browse-items-empty-folder" ng-if="files.isEmpty">
+	<p>This folder is empty</p>
+</div>
