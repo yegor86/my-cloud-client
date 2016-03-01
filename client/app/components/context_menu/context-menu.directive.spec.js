@@ -90,6 +90,6 @@ describe('context menu directive', function () {
         var controller = element.controller('mccContextMenu');
         scope.fileName = 'testFile';
         controller.click({name: 'download'});
-        expect(downloadService.download).toHaveBeenCalledWith('testFile');
+        expect(downloadService.download).toHaveBeenCalledWith('admin@mail.com', 'testFile');
     }));
 });
