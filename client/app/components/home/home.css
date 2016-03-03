@@ -142,3 +142,15 @@ ul.menu li:hover {
 #create-folder-errors {
     min-height: 17px;
 }
+
+#page-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    height: 50px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 16px 0px;
+}
