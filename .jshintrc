@@ -44,7 +44,7 @@
   "notypeof": false,
   "proto": false,
   "scripturl": false,
-  "shadow": false,
+  "shadow": true,
   "sub": true,
   "supernew": false,
   "validthis": false,

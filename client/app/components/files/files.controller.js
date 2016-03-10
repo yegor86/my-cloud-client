@@ -12,7 +12,8 @@
         vm.clickOnItem = clickOnItem;
         vm.rightClickOnItem = rightClickOnItem;
 
-        vm.items = filesService.query({email: 'admin@mail.com', path: $stateParams.path || ""}, successHandler, errorHandler);
+        vm.items = filesService.query({email: 'admin@mail.com', path: $stateParams.path || ""},
+            successHandler, errorHandler);
 
         function errorHandler(error) {
             $state.transitionTo('error');
