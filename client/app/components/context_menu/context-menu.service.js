@@ -14,7 +14,8 @@
             rename: {name: 'rename', title: 'Rename'},
             copy: {name: 'copy', title: 'Copy...'},
             upload: {name: 'upload', title: 'Upload...'},
-            newFolder: {name: 'create-folder', title: 'New folder'}};
+            newFolder: {name: 'create-folder', title: 'New folder'},
+            share: {name: 'share', title: 'Share...'}};
 
         var menu = {};
 
@@ -81,7 +82,7 @@
             if (type === 'document') {
                 return [actions.upload, actions.newFolder];
             } else if (type === 'dir') {
-                return [actions.open, actions.delete, actions.rename, actions.copy];
+                return [actions.open, actions.delete, actions.rename, actions.copy, actions.share];
             } else {
                 return [actions.download, actions.open, actions.delete, actions.rename, actions.copy];
             }

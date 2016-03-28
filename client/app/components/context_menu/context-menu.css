@@ -65,6 +65,10 @@
     background: resolve("web_sprites.png") no-repeat left -2166px;
 }
 
+#context-menu .sprite-context-menu-share {
+    background: resolve("web_sprites.png") no-repeat left -7722px;
+}
+
 #context-menu .icon {
     width: 19px;
     height: 19px;
