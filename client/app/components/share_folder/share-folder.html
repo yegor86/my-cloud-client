@@ -1,0 +1,13 @@
+<div class="modal">
+  <h2 class="modal-title">Share '{{shareFolderName}}' with others</h2>
+  <section class="modal-content">
+    <form method="post">
+      <div id="share-folder-errors"></div>
+      <input type="text" id="share-folder-input" class="text-input" name="share-folder-input" ng-model="shareFolderInput" />
+      <section id="share-folder-buttons">
+        <input type="button" id="share-folder-button" value="Share folder" class="blue-button" ng-disabled="!shareFolderInput.length" ng-click="" />
+        <input type="button" id="cancel-button" value="Cancel" class="grey-button" ng-click="$broadcast('closeModalWindow')" />
+      </section>
+    </form>
+  </section>
+</div>

@@ -15,7 +15,7 @@
             copy: {name: 'copy', title: 'Copy...'},
             upload: {name: 'upload', title: 'Upload...'},
             newFolder: {name: 'create-folder', title: 'New folder'},
-            share: {name: 'share', title: 'Share...'}};
+            share: {name: 'share-folder', title: 'Share...'}};
 
         var menu = {};
 

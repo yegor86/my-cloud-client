@@ -65,7 +65,7 @@
     background: resolve("web_sprites.png") no-repeat left -2166px;
 }
 
-#context-menu .sprite-context-menu-share {
+#context-menu .sprite-context-menu-share-folder {
     background: resolve("web_sprites.png") no-repeat left -7722px;
 }
 

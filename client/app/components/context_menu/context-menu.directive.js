@@ -53,6 +53,9 @@
                 case "download":
                     downloadService.download('admin@mail.com', $scope.fileName);
                     break;
+                case "share-folder":
+                    $scope.$emit('shareFolder');
+                    break;
             }
         }
     }
