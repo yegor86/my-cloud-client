@@ -3,7 +3,25 @@
   <section class="modal-content">
     <form method="post">
       <div id="share-folder-errors"></div>
-      <input type="text" id="share-folder-input" class="text-input" name="share-folder-input" ng-model="shareFolderInput" />
+      <section class="invite-input">
+        <input type="checkbox" checked id="allow-members-to-share" name="allow-members-to-share" />
+        <label for="allow-members-to-share">Allow anyone who can edit to manage membership of this folder</label>
+      </section>
+      <section class="tokenizer-input">
+        <input type="text" id="share-folder-input" class="text-input" name="share-folder-input" ng-model="shareFolderInput" />
+        <label for="share-folder-input" ng-hide="shareFolderInput.length">Invite members to this folder</label>
+        <div id="share-permission">
+          <div class="permission-picker-label-wrapper">
+            <div class="sprite-text">
+              <span class="permission-picker-label"></span>
+            </div>
+            <div class="sprite-frame">
+              <img src="/assets/images/icon_spacer.gif" />
+            </div>
+          </div>
+          <div class="permission-picker-dropdown"></div>
+        </div>
+      </section>
       <section id="share-folder-buttons">
         <input type="button" id="share-folder-button" value="Share folder" class="blue-button" ng-disabled="!shareFolderInput.length" ng-click="" />
         <input type="button" id="cancel-button" value="Cancel" class="grey-button" ng-click="$broadcast('closeModalWindow')" />
