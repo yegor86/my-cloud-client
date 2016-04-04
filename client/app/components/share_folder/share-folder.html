@@ -8,8 +8,8 @@
         <label for="allow-members-to-share">Allow anyone who can edit to manage membership of this folder</label>
       </section>
       <section class="tokenizer-input">
-        <input type="text" id="share-folder-input" class="text-input" name="share-folder-input" ng-model="shareFolderInput" />
-        <label for="share-folder-input" ng-hide="shareFolderInput.length">Invite members to this folder</label>
+        <input type="text" id="share-folder-input" class="text-input" name="share-folder-input" ng-model="shareFolderInvite" />
+        <label for="share-folder-input" ng-hide="shareFolderInvite.length">Invite members to this folder</label>
         <div id="share-permission">
           <div class="permission-picker-label-wrapper">
             <div class="sprite-text">
@@ -23,7 +23,7 @@
         </div>
       </section>
       <section id="share-folder-buttons">
-        <input type="button" id="share-folder-button" value="Share folder" class="blue-button" ng-disabled="!shareFolderInput.length" ng-click="" />
+        <input type="button" id="share-folder-button" value="Share folder" class="blue-button" ng-disabled="!shareFolderInvite.length" ng-click="shareFolder.share($event)" />
         <input type="button" id="cancel-button" value="Cancel" class="grey-button" ng-click="$broadcast('closeModalWindow')" />
       </section>
     </form>

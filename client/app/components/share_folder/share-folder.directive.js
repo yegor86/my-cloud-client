@@ -26,12 +26,19 @@
     }
 
     /* @ngInject */
-    function ShareFolderController($scope) {
+    function ShareFolderController($scope, $stateParams, shareFolderService) {
         var vm = this;
         vm.share = share;
 
         function share(event) {
+            shareFolderService.query({
+                path: [$stateParams.path, $scope.shareFolderName].join('/'),
+                email: 'admin@mail.com',
+                userUid: $scope.shareFolderInvite,
+                permissions: 'GROUP_WRITE'
+            });
 
+            $scope.$broadcast('closeModalWindow');
         }
     }
 }(angular));
