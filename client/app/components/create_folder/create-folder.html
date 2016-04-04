@@ -7,7 +7,7 @@
       <input type="text" id="folder-name" class="text-input" name="folder-name" ng-model="folderName" />
       <section id="create-folder-buttons">
         <input type="button" id="create-folder-button" value="Create folder" class="blue-button" ng-disabled="!folderName.length" ng-click="createFolder.create($event)" />
-        <input type="button" id="cancel-button" value="Cancel" class="grey-button" ng-click="createFolder.close($event)" />
+        <input type="button" id="cancel-button" value="Cancel" class="grey-button" ng-click="$broadcast('closeModalWindow')" />
       </section>
     </form>
   </section>
