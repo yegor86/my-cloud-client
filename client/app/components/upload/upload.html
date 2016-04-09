@@ -4,7 +4,7 @@
     <span>Choose files to upload to your Cloud Drive. You can select more than one file at a time. You can also drag and drop files anywhere on this page to start uploading.</span>
     <section id="upload-buttons">
       <input type="button" id="upload-choose-button" value="Choose a file" class="blue-button" ng-click="upload.chooseFile($event)" />
-      <input type="button" id="cancel-button" value="Cancel" class="grey-button" ng-click="upload.close($event)" />
+      <input type="button" id="cancel-button" value="Cancel" class="grey-button" ng-click="$broadcast('closeModalWindow')" />
     </section>
   </section>
   <section id="upload-input-container">

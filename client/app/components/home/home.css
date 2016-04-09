@@ -91,11 +91,6 @@ ul.menu li:hover {
     visibility: visible;
 }
 
-#upload-buttons, #create-folder-buttons {
-    text-align: right;
-    margin-top: 20px;
-}
-
 .blue-button {
     background: #007ee5 linear-gradient(#168add, #007ee5);
     border: 1px solid #0c6ebe;

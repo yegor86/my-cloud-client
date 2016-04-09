@@ -5,6 +5,7 @@
         'app.files',
         'app.context-menu',
         'app.create-folder',
-        'app.upload'
+        'app.upload',
+        'app.share-folder'
     ]);
 }(angular));

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.files')
+        .module('app.create-folder')
         .directive('mccCreateFolder', createFolder);
 
     /* @ngInject */
@@ -29,7 +29,6 @@
     function CreateFolderController($state, $stateParams, $scope, createFolderService) {
         var vm = this;
         vm.create = create;
-        vm.close = close;
 
         function create(event) {
             var path = $stateParams.path;
@@ -39,10 +38,6 @@
                 email: "admin@mail.com"
             }).then(successHandler);
 
-            $scope.$broadcast('closeModalWindow');
-        }
-
-        function close(event) {
             $scope.$broadcast('closeModalWindow');
         }
 

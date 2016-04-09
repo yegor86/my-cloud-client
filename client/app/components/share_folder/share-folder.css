@@ -1,0 +1,37 @@
+.invite-input {
+    text-align: right;
+    padding: 0px 5px 5px;
+}
+
+.tokenizer-input {
+    left: 4px;
+    margin-left: -1px;
+    overflow: hidden;
+    position: relative;
+}
+
+.tokenizer-input input {
+    font-size: 13px;
+    border: 1px solid #e5e5e5;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+    display: block;
+    margin: 0 3px 0 0;
+    padding: 0 7px;
+}
+.tokenizer-input input:focus {
+    outline: none;
+}
+
+.tokenizer-input label {
+    font-size: 13px;
+    position: absolute;
+    left: 8px;
+    top: 5px;
+    cursor: text;
+    pointer-events: none;
+    color: #ccc;
+    -webkit-transition: color 0.2s linear 0s;
+    transition: color 0.2s linear 0s;
+}

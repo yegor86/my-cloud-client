@@ -40,14 +40,9 @@
     function UploadController($scope) {
         var vm = this;
         vm.chooseFile = chooseFile;
-        vm.close = close;
 
         function chooseFile(event) {
             $scope.$broadcast('chooseFile');
-        }
-
-        function close(event) {
-            $scope.$broadcast('closeModalWindow');
         }
     }
 }(angular));

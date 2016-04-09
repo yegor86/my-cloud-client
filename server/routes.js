@@ -11,6 +11,7 @@
     require('./routes/upload')(router);
     require('./routes/download')(router);
     require('./routes/createFolder')(router);
+    require('./routes/shareFolder')(router);
 
     module.exports = router;
 }(module));
