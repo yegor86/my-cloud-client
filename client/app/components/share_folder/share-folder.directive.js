@@ -36,9 +36,16 @@
                 email: 'admin@mail.com',
                 userUid: $scope.shareFolderInvite,
                 permissions: 'GROUP_WRITE'
-            });
+            }, successHandler, errorHandler);
 
             $scope.$broadcast('closeModalWindow');
+            
+            function successHandler(response) {
+            }
+
+            function errorHandler(response) {
+                $scope.$broadcast('error', response);
+            }
         }
     }
 }(angular));

@@ -36,13 +36,17 @@
             createFolderService.send({
                 path: [path, $scope.folderName].join('/'),
                 email: "admin@mail.com"
-            }, successHandler);
+            }, successHandler, errorHandler);
 
             $scope.$broadcast('closeModalWindow');
         }
 
         function successHandler(response) {
             $state.reload($state.current);
+        }
+
+        function errorHandler(response) {
+            $scope.$broadcast('error', response);
         }
     }
 }(angular));

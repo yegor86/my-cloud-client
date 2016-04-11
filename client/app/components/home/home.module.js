@@ -6,6 +6,7 @@
         'app.context-menu',
         'app.create-folder',
         'app.upload',
-        'app.share-folder'
+        'app.share-folder',
+        'app.notify'
     ]);
 }(angular));
