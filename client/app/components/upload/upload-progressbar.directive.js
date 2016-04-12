@@ -42,13 +42,17 @@
                 filePath: [path, file.name].join('/'),
                 email: 'admin@mail.com',
                 file: file
-            }).then(successHandler);
+            }).then(successHandler, errorHandler);
         }
 
         function successHandler(response) {
             $state.reload($state.current);
 
             $scope.$broadcast('uploadProgressEnd');
+        }
+
+        function errorHandler(response) {
+            $scope.$broadcast('error', response);
         }
     }
 }(angular));

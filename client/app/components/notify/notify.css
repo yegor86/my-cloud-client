@@ -1,0 +1,29 @@
+#notify-wrapper {
+    width: 100%;
+    height: 0px;
+    left: 0;
+    top: 0;
+    text-align: center;
+    position: fixed;
+    z-index: 1001;
+}
+
+#notify {
+    border-radius: 3px;
+    margin: 9px;
+    padding: 8px 18px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.server-error {
+    background-color: #fef1f1;
+    border: 1px solid #e2a8a8;
+    color: #D46D6D;
+}
+
+.server-success {
+    background-color: #e8f7ed;
+    border: 1px solid #30b661;
+    color: #1BA84E;
+}
