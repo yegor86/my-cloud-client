@@ -21,7 +21,9 @@
 
             var serverRequest = http.request(options, function (serverResponse) {
                 serverResponse.on('data', function (chunk) {
-                    clientResponse.send(chunk);
+                    if (clientResponse.headersSent === false) {
+                        clientResponse.send(chunk);
+                    }
                 });
             });
             serverRequest.on('error', function (error) {
