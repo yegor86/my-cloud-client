@@ -17,9 +17,8 @@
 
         function link(scope, element, attrs, notify) {
             scope.$on('error', function (event, response) {
-                notify.message = (response === undefined || response.data === null)
-                    ? 'Undefined error'
-                    : response.data.message;
+                notify.message =
+                    (response === undefined || response.data === null) ? 'Undefined error' : response.data.message;
                 notify.class = 'server-error';
                 notify.showMessage = true;
 
