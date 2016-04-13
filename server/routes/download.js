@@ -20,8 +20,12 @@
                     method: 'GET'};
 
             var serverRequest = http.request(options, function (serverResponse) {
+                var response = '';
                 serverResponse.on('data', function (chunk) {
-                    clientResponse.send(chunk);
+                    response += chunk;
+                });
+                serverResponse.on('end', function () {
+                    clientResponse.send(response);
                 });
             });
             serverRequest.on('error', function (error) {
