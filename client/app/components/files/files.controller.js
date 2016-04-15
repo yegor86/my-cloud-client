@@ -40,9 +40,7 @@
         }
 
         function rightClickOnItem(event, item) {
-            var menu = contextMenuService.createMenu(item.type);
-            menu.scope.fileName = item.name;
-            menu.open(event);
+            contextMenuService.createMenu(item.type);
         }
     }
 }(angular));

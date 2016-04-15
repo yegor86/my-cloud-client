@@ -3,10 +3,17 @@
 
     angular
         .module('app.context-menu')
-        .factory('contextMenuService', contextMenuService);
+        .service('contextMenuService', contextMenuService);
 
     /* @ngInject */
-    function contextMenuService($document, windowOpener) {
+    function contextMenuService($document) {
+        var menu = this;
+        menu.getActions = getActions;
+        menu.createMenu = createMenu;
+        menu.hideMenu = hideMenu;
+        menu.isShown = false;
+
+        var MARGIN_BOTTOM = 10;
         var actions = {
             download: {name: 'download', title: 'Download'},
             open: {name: 'open', title: 'Open'},
@@ -16,67 +23,6 @@
             upload: {name: 'upload', title: 'Upload...'},
             newFolder: {name: 'create-folder', title: 'New folder'},
             share: {name: 'share-folder', title: 'Share...'}};
-
-        var menu = {};
-
-        menu.marginBottom = 10;
-
-        menu.open = function (event) {
-            var doc = $document[0].documentElement,
-                docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
-                docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
-                elementWidth = this.element[0].scrollWidth,
-                elementHeight = this.element[0].scrollHeight,
-                docWidth = doc.clientWidth + docLeft,
-                docHeight = doc.clientHeight + docTop,
-                totalWidth = elementWidth + event.pageX,
-                totalHeight = elementHeight + event.pageY,
-                left = Math.max(event.pageX - docLeft, 0),
-                top = Math.max(event.pageY - docTop, 0);
-
-            if (totalWidth > docWidth) {
-                left = left - (totalWidth - docWidth);
-            }
-
-            if (totalHeight > docHeight) {
-                var margin = this.marginBottom || 0;
-                top = top - (totalHeight - docHeight) - margin;
-            }
-
-            this.element.css('top', top + 'px');
-            this.element.css('left', left + 'px');
-
-            windowOpener.open(this.element);
-        };
-
-        menu.isOpened = function () {
-            if (this.element === undefined) {
-                return false;
-            }
-            return windowOpener.isOpened(this.element);
-        };
-
-        menu.reset = function () {
-            this.element = angular.element($document[0].getElementById('context-menu'));
-            this.scope = this.element.scope();
-        };
-
-        menu.close = function () {
-            if (windowOpener.isOpened(this.element)) {
-                windowOpener.close(this.element);
-            }
-        };
-
-        return {
-            createMenu: createMenu,
-            getMenu: getMenu
-        };
-
-        function createMenu(type) {
-            menu.reset();
-            menu.scope.actions = getActions(type);
-            return menu;
-        }
 
         function getActions(type) {
             if (type === 'document') {
@@ -88,8 +34,68 @@
             }
         }
 
-        function getMenu() {
-            return menu;
+        function createMenu(menuType) {
+            setPosition();
+            if (menu.type !== menuType) {
+                menu.element.scope().$apply(function () {
+                    menu.actions = getActions(menuType);
+                });
+                menu.type = menuType;
+            }
+            showMenu();
+        }
+
+        function showMenu() {
+            if (menu.isShown === false) {
+                menu.element.scope().$apply(function () {
+                    menu.isShown = true;
+                });
+            }
+        }
+
+        function hideMenu() {
+            if (menu.isShown === true) {
+                menu.element.scope().$apply(function () {
+                    menu.isShown = false;
+                });
+            }
+        }
+
+        function setPosition() {
+            var top = getTopPosition();
+            var left = getLeftPosition();
+
+            menu.element.css('top', top + 'px');
+            menu.element.css('left', left + 'px');
+        }
+
+        function getTopPosition() {
+            var doc = $document[0].documentElement,
+                docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
+                elementHeight = menu.element[0].scrollHeight,
+                docHeight = doc.clientHeight + docTop,
+                totalHeight = elementHeight + event.pageY,
+                top = Math.max(event.pageY - docTop, 0);
+
+            if (totalHeight > docHeight) {
+                var margin = MARGIN_BOTTOM || 0;
+                top = top - (totalHeight - docHeight) - margin;
+            }
+            return top;
+        }
+
+        function getLeftPosition() {
+            var doc = $document[0].documentElement,
+                docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
+                elementWidth = menu.element[0].scrollWidth,
+                docWidth = doc.clientWidth + docLeft,
+                totalWidth = elementWidth + event.pageX,
+                left = Math.max(event.pageX - docLeft, 0);
+
+            if (totalWidth > docWidth) {
+                left = left - (totalWidth - docWidth);
+            }
+            return left;
         }
     }
 }(angular));

@@ -15,34 +15,30 @@
             restrict: 'A'
         };
 
-        function link() {
+        function link(scope, element) {
             // Trigger right click on the document
             $document.bind('contextmenu', function (event) {
                 // Prevent a default context menu
                 event.preventDefault();
 
-                var menu = contextMenuService.createMenu('document');
-                // Executes a function outside of the context menu controller
-                menu.scope.$apply(function () {
-                    menu.open(event);
-                });
+                contextMenuService.createMenu('document');
             });
 
             $document.bind('click', function (event) {
-                var menu = contextMenuService.getMenu();
-                if (menu.isOpened() === true) {
-                    menu.close(event);
-                }
+                contextMenuService.hideMenu();
             });
+
+            contextMenuService.element = element;
         }
     }
 
     /* @ngInject */
-    function ContextMenuController($scope, downloadService) {
+    function ContextMenuController($scope, downloadService, contextMenuService) {
         var vm = this;
-        vm.click = click;
+        vm.click = clickOnAction;
+        vm.service = contextMenuService;
 
-        function click(action) {
+        function clickOnAction(action) {
             switch (action.name) {
                 case "upload":
                     $scope.$emit('upload');
