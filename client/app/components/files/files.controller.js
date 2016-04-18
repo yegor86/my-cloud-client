@@ -40,7 +40,7 @@
         }
 
         function rightClickOnItem(event, item) {
-            contextMenuService.createMenu(item.type);
+            contextMenuService.createMenu(item.type, event);
         }
     }
 }(angular));

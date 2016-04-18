@@ -34,8 +34,8 @@
             }
         }
 
-        function createMenu(menuType) {
-            setPosition();
+        function createMenu(menuType, event) {
+            setPosition(event);
             if (menu.type !== menuType) {
                 menu.element.scope().$apply(function () {
                     menu.actions = getActions(menuType);
@@ -61,15 +61,15 @@
             }
         }
 
-        function setPosition() {
-            var top = getTopPosition();
-            var left = getLeftPosition();
+        function setPosition(event) {
+            var top = getTopPosition(event);
+            var left = getLeftPosition(event);
 
             menu.element.css('top', top + 'px');
             menu.element.css('left', left + 'px');
         }
 
-        function getTopPosition() {
+        function getTopPosition(event) {
             var doc = $document[0].documentElement,
                 docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
                 elementHeight = menu.element[0].scrollHeight,
@@ -84,7 +84,7 @@
             return top;
         }
 
-        function getLeftPosition() {
+        function getLeftPosition(event) {
             var doc = $document[0].documentElement,
                 docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
                 elementWidth = menu.element[0].scrollWidth,

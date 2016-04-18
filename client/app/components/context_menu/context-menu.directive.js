@@ -21,7 +21,7 @@
                 // Prevent a default context menu
                 event.preventDefault();
 
-                contextMenuService.createMenu('document');
+                contextMenuService.createMenu('document', event);
             });
 
             $document.bind('click', function (event) {
