@@ -37,7 +37,8 @@
         function createMenu(menuType, event) {
             setPosition(event);
             if (menu.type !== menuType) {
-                menu.element.scope().$apply(function () {
+                menu.scope = menu.element.scope();
+                menu.scope.$apply(function () {
                     menu.actions = getActions(menuType);
                 });
                 menu.type = menuType;
@@ -46,18 +47,16 @@
         }
 
         function showMenu() {
-            if (menu.isShown === false) {
-                menu.element.scope().$apply(function () {
-                    menu.isShown = true;
-                });
+            if (menu.isShown === false && menu.type !== undefined) {
+                menu.isShown = true;
+                menu.element.addClass('opened');
             }
         }
 
         function hideMenu() {
             if (menu.isShown === true) {
-                menu.element.scope().$apply(function () {
-                    menu.isShown = false;
-                });
+                menu.isShown = false;
+                menu.element.removeClass('opened');
             }
         }
 
