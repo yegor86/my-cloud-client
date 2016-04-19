@@ -14,11 +14,9 @@
 
         function link(scope, element, attrs) {
             var fn = $parse(attrs.mccRightClick);
-            var item = scope.item;
             element.bind('contextmenu', function (event) {
                 event.stopImmediatePropagation();                
                 event.preventDefault();
-                scope.item = item;
                 fn(scope, {$event: event});
             });
         }

@@ -38,7 +38,11 @@
         vm.click = clickOnAction;
         vm.service = contextMenuService;
 
-        function clickOnAction(action) {
+        function clickOnAction(action, event) {
+            // Hides the menu in case the right click on the action
+            if (event.type === 'contextmenu') {
+                contextMenuService.hideMenu();
+            }
             switch (action.name) {
                 case "upload":
                     $scope.$emit('upload');

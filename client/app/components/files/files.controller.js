@@ -41,6 +41,7 @@
 
         function rightClickOnItem(event, item) {
             contextMenuService.createMenu(item.type, event);
+            contextMenuService.scope.fileName = item.name;
         }
     }
 }(angular));
