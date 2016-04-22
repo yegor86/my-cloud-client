@@ -1,4 +1,4 @@
-<li class="action" ng-click="contextMenu.click(action, $event)" mcc-right-click="contextMenu.click(action, $event)" ng-repeat="action in contextMenu.service.actions">
+<li class="action" ng-click="contextMenu.click(action, $event)" mcc-right-click="$emit('rightClickOnAction', action)" ng-repeat="action in contextMenu.actions">
   <button id="context-menu-{{action.name}}-button">
     <div class="icon-frame">
       <img class="icon sprite-context-menu-{{action.name}}" ng-src="/assets/images/icon_spacer.gif" />

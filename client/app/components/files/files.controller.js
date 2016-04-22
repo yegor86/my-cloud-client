@@ -6,11 +6,10 @@
         .controller('FilesController', FilesController);
 
     /* @ngInject */
-    function FilesController($state, $stateParams, filesService, contextMenuService) {
+    function FilesController($state, $stateParams, filesService) {
         var vm = this;
         vm.isEmpty = false;
         vm.clickOnItem = clickOnItem;
-        vm.rightClickOnItem = rightClickOnItem;
 
         vm.items = filesService.query({email: 'admin@mail.com', path: $stateParams.path || ""},
             successHandler, errorHandler);
@@ -37,11 +36,6 @@
                     {path: [$stateParams.path, item.name].join("/")},
                     {reload: false});
             }
-        }
-
-        function rightClickOnItem(event, item) {
-            contextMenuService.createMenu(item.type, event);
-            contextMenuService.scope.fileName = item.name;
         }
     }
 }(angular));
