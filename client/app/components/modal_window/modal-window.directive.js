@@ -6,7 +6,7 @@
         .directive('mccModalWindow', modalWindow);
 
     /* @ngInject */
-    function modalWindow($document, windowOpener) {
+    function modalWindow($document) {
         return {
             link: link,
             controller: ModalWindowController,
@@ -15,15 +15,15 @@
         };
 
         function link(scope, element, attrs, modalWindow) {
-            scope.overlayElement = angular.element($document[0].getElementById('modal-overlay'));
-            scope.overlayElement.bind('click', function (event) {
-                if (windowOpener.isOpened(element) && element.hasClass('progressbar') === false) {
-                    modalWindow.close(event);
+            modalWindow.overlayElement = angular.element($document[0].getElementById('modal-overlay'));
+            modalWindow.overlayElement.bind('click', function (event) {
+                if (modalWindow.isOpened() && element.hasClass('progressbar') === false) {
+                    modalWindow.close();
                 }
             });
 
             // Don't trigger the context menu on overlay
-            scope.overlayElement.bind('contextmenu', function (event) {
+            modalWindow.overlayElement.bind('contextmenu', function (event) {
                 event.stopPropagation();
             });
 
@@ -33,25 +33,34 @@
             });
 
             scope.$on('closeModalWindow', function (event) {
-                modalWindow.close(event);
+                modalWindow.close();
             });
         }
     }
 
     /* @ngInject */
-    function ModalWindowController($scope, $element, windowOpener) {
+    function ModalWindowController($element) {
         var vm = this;
         vm.open = open;
         vm.close = close;
+        vm.isOpened = isOpened;
 
-        function open(event) {
-            windowOpener.open($scope.overlayElement);
-            windowOpener.open($element);
+        function open() {
+            if (isOpened() === false) {
+                $element.addClass('opened');
+                vm.overlayElement.addClass('opened');
+            }
         }
 
-        function close(event) {
-            windowOpener.close($scope.overlayElement);
-            windowOpener.close($element);
+        function close() {
+            if (isOpened() === true) {
+                $element.removeClass('opened');
+                vm.overlayElement.removeClass('opened');
+            }
+        }
+
+        function isOpened() {
+            return $element.hasClass('opened');
         }
     }
 }(angular));
