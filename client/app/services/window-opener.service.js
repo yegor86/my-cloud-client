@@ -13,14 +13,14 @@
         };
 
         function open(element) {
-            if (element instanceof jQuery || element instanceof Object) {
+            if (element instanceof Object) {
                 return element.addClass('opened');
             }
             return false;
         }
 
         function close(element) {
-            if ((element instanceof jQuery || element instanceof Object) && isOpened(element)) {
+            if (element instanceof Object && isOpened(element)) {
                 return element.removeClass('opened');
             }
             return false;

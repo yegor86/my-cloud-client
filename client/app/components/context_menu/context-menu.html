@@ -1,10 +1,9 @@
-<ul id="context-menu" class="menu closed">
-  <li class="action" ng-click="contextMenu.click(action)" ng-repeat="action in actions">
-    <button id="context-menu-{{action.name}}-button">
-      <div class="icon-frame">
-        <img class="icon sprite-context-menu-{{action.name}}" ng-src="/assets/images/icon_spacer.gif" />
-      </div>
-      <span>{{action.title}}</span>
-    </button>
-  </li>
-</ul>
+<li class="action" ng-click="contextMenu.click(action, $event)" mcc-right-click="$emit('rightClickOnAction', action)" ng-repeat="action in contextMenu.actions">
+  <button id="context-menu-{{action.name}}-button">
+    <div class="icon-frame">
+      <img class="icon sprite-context-menu-{{action.name}}" ng-src="/assets/images/icon_spacer.gif" />
+    </div>
+    <span>{{action.title}}</span>
+  </button>
+</li>
+

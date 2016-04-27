@@ -6,7 +6,8 @@
         .factory('contextMenuService', contextMenuService);
 
     /* @ngInject */
-    function contextMenuService($document, windowOpener) {
+    function contextMenuService($document) {
+        var MARGIN_BOTTOM = 10;
         var actions = {
             download: {name: 'download', title: 'Download'},
             open: {name: 'open', title: 'Open'},
@@ -17,66 +18,11 @@
             newFolder: {name: 'create-folder', title: 'New folder'},
             share: {name: 'share-folder', title: 'Share...'}};
 
-        var menu = {};
-
-        menu.marginBottom = 10;
-
-        menu.open = function (event) {
-            var doc = $document[0].documentElement,
-                docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
-                docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
-                elementWidth = this.element[0].scrollWidth,
-                elementHeight = this.element[0].scrollHeight,
-                docWidth = doc.clientWidth + docLeft,
-                docHeight = doc.clientHeight + docTop,
-                totalWidth = elementWidth + event.pageX,
-                totalHeight = elementHeight + event.pageY,
-                left = Math.max(event.pageX - docLeft, 0),
-                top = Math.max(event.pageY - docTop, 0);
-
-            if (totalWidth > docWidth) {
-                left = left - (totalWidth - docWidth);
-            }
-
-            if (totalHeight > docHeight) {
-                var margin = this.marginBottom || 0;
-                top = top - (totalHeight - docHeight) - margin;
-            }
-
-            this.element.css('top', top + 'px');
-            this.element.css('left', left + 'px');
-
-            windowOpener.open(this.element);
-        };
-
-        menu.isOpened = function () {
-            if (this.element === undefined) {
-                return false;
-            }
-            return windowOpener.isOpened(this.element);
-        };
-
-        menu.reset = function () {
-            this.element = angular.element($document[0].getElementById('context-menu'));
-            this.scope = this.element.scope();
-        };
-
-        menu.close = function () {
-            if (windowOpener.isOpened(this.element)) {
-                windowOpener.close(this.element);
-            }
-        };
-
         return {
-            createMenu: createMenu,
-            getMenu: getMenu
+            getActions: getActions,
+            getTopPosition: getTopPosition,
+            getLeftPosition: getLeftPosition
         };
-
-        function createMenu(type) {
-            menu.reset();
-            menu.scope.actions = getActions(type);
-            return menu;
-        }
 
         function getActions(type) {
             if (type === 'document') {
@@ -88,8 +34,33 @@
             }
         }
 
-        function getMenu() {
-            return menu;
+        function getTopPosition(element, event) {
+            var doc = $document[0].documentElement,
+                docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
+                elementHeight = element[0].scrollHeight,
+                docHeight = doc.clientHeight + docTop,
+                totalHeight = elementHeight + event.pageY,
+                top = Math.max(event.pageY - docTop, 0);
+
+            if (totalHeight > docHeight) {
+                var margin = MARGIN_BOTTOM || 0;
+                top = top - (totalHeight - docHeight) - margin;
+            }
+            return top;
+        }
+
+        function getLeftPosition(element, event) {
+            var doc = $document[0].documentElement,
+                docLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0),
+                elementWidth = element[0].scrollWidth,
+                docWidth = doc.clientWidth + docLeft,
+                totalWidth = elementWidth + event.pageX,
+                left = Math.max(event.pageX - docLeft, 0);
+
+            if (totalWidth > docWidth) {
+                left = left - (totalWidth - docWidth);
+            }
+            return left;
         }
     }
 }(angular));

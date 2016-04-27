@@ -5,8 +5,7 @@
     "angular": ">=1.4.*",
     "angular-resource": ">=1.4.*",
     "angular-ui-router": "~0.2.15",
-    "angular-upload": "~1.0.12",
-    "jquery": "~2.1.*"
+    "angular-upload": "~1.0.12"
   },
   "devDependencies": {
     "angular-mocks": ">=1.3.*"

@@ -13,27 +13,17 @@ describe('context menu directive', function () {
         module(function ($provide) {
             // Mock the contextMenuService
             $provide.factory('contextMenuService', function () {
-                var createMenu = jasmine.createSpy('createMenu').and.callFake(function (type) {
-                    return {
-                        scope: scope,
-                        open: function () {
-                            element.addClass('opened');
-                        }
-                    };
-                });
-                var getMenu = jasmine.createSpy('getMenu').and.callFake(function (type) {
-                    return {
-                        isOpened: function () {
-                            return true;
-                        },
-                        close: function () {
-                            element.removeClass('opened');
-                        }
-                    };
+                var getActions = jasmine.createSpy('getActions').and.callFake(function (type) {
+                    return [];
                 });
                 return {
-                    createMenu: createMenu,
-                    getMenu: getMenu
+                    getActions: getActions,
+                    getTopPosition: function () {
+                        return 0;
+                    },
+                    getLeftPosition: function () {
+                        return 0;
+                    }
                 };
             });
             // Mock the downloadService
@@ -49,7 +39,7 @@ describe('context menu directive', function () {
 
     beforeEach(inject(function ($compile, $rootScope, $httpBackend, $document) {
         scope = $rootScope.$new();
-        element = angular.element('<div id="context-menu-container" mcc-context-menu></div>');
+        element = angular.element('<ul id="context-menu" mcc-context-menu></ul>');
         $compile(element)(scope);
         $httpBackend.expect('GET', 'app/components/context_menu/context-menu.html').respond(200, '');
         $httpBackend.flush();
@@ -59,7 +49,7 @@ describe('context menu directive', function () {
 
     it('should create the context menu by the right click on the document', inject(function (contextMenuService) {
         document.triggerHandler('contextmenu');
-        expect(contextMenuService.createMenu).toHaveBeenCalledWith('document');
+        expect(contextMenuService.getActions).toHaveBeenCalledWith('document');
     }));
 
     it('should have the "opened" class when right clicking', function () {
@@ -67,7 +57,7 @@ describe('context menu directive', function () {
         expect(element.hasClass('opened')).toBeTruthy();
     });
 
-    it('should hide the context menu by the right click on the document', function () {
+    it('should hide the context menu by the click on the document', function () {
         document.triggerHandler('click');
         expect(element.hasClass('opened')).toBeFalsy();
     });
