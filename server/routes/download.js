@@ -20,12 +20,12 @@
                     method: 'GET'};
 
             var serverRequest = http.request(options, function (serverResponse) {
-                var response = '';
+                var body = [];
                 serverResponse.on('data', function (chunk) {
-                    response += chunk;
-                });
-                serverResponse.on('end', function () {
-                    clientResponse.send(response);
+                    body.push(chunk);
+                }).on('end', function () {
+                    body = Buffer.concat(body).toString();
+                    clientResponse.send(body);
                 });
             });
             serverRequest.on('error', function (error) {
