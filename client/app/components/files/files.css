@@ -81,6 +81,9 @@
     float: left;
     height: 32px;
     width: 47%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #browse-items .name .name-link {
