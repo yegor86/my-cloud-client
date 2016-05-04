@@ -11,7 +11,7 @@
             return url.replace(/%2F/g, '/');
         }
 
-        router.get('/files/list(\/?[a-zA-Z0-9_-]?)*', function (clientRequest, clientResponse) {
+        router.get('/files/list*', function (clientRequest, clientResponse) {
 
             var options = {
                     host: server.host,
